@@ -1,0 +1,7 @@
+import Link from 'next/link'
+import AdminShell from '@/components/AdminShell'
+import { db, initDb } from '@/lib/db'
+import { STATUSES } from '@/lib/status'
+import { updateStatus } from '@/app/actions'
+
+export default async function Kanban(){await initDb();const rows=(await db.execute('SELECT id,project_name,responsible_name,project_type,status,created_at FROM briefings ORDER BY created_at DESC')).rows as any[];return <AdminShell><p className="eyebrow">Produção</p><h1 className="section-title">Kanban de LPs</h1><p className="muted">Arrasto pode entrar na próxima versão. Nesta versão, mova os cards alterando o status.</p><div className="kanban" style={{marginTop:24}}>{STATUSES.map(([status,label])=>{const cards=rows.filter(r=>r.status===status);return <section className="column" key={status}><b>{label} · {cards.length}</b>{cards.map(r=><article className="kcard" key={r.id}><h3 style={{margin:'0 0 6px'}}>{r.project_name}</h3><p className="muted" style={{fontSize:12}}>{r.responsible_name||'Sem responsável'} · {r.project_type||'Tipo não informado'}</p><Link href={`/admin/briefings/${r.id}`} className="btn btn-soft" style={{width:'100%',marginBottom:8}}>Abrir</Link><form action={updateStatus}><input type="hidden" name="id" value={r.id}/><select name="status" className="input" defaultValue={status}>{STATUSES.map(([s,l])=><option value={s} key={s}>{l}</option>)}</select><button className="btn btn-primary" style={{width:'100%',marginTop:8}}>Mover</button></form></article>)}</section>})}</div></AdminShell>}
