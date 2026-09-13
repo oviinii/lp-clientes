@@ -1,33 +1,6 @@
 import Link from 'next/link'
 import { ArrowRight, CheckCircle2, LayoutDashboard, Database, Lock, BarChart3 } from 'lucide-react'
 
-const lps = [
-  {
-    name: 'Congresso Multidimensional',
-    desc: 'Evento espiritual presencial — expansão de consciência',
-    url: 'https://congresso-multidimensional.vercel.app/',
-    icon: '🔮',
-  },
-  {
-    name: 'Ìyá Linda T'Osún',
-    desc: 'Cursos, consultas e espiritualidade ancestral — Jogo de Búzios',
-    url: 'https://iyalinda.vercel.app/',
-    icon: '✨',
-  },
-  {
-    name: 'Diego Guimarães',
-    desc: 'Fotógrafo e criador de conteúdo',
-    url: 'https://lp-diego-guimaraes.vercel.app/',
-    icon: '📸',
-  },
-  {
-    name: 'KBZA Marketing de Resultado',
-    desc: 'Agência de marketing e comunicação',
-    url: 'https://kbza-marketing-de-resultado.vercel.app/',
-    icon: '📊',
-  },
-]
-
 export default function Home() {
   return (
     <main>
@@ -66,17 +39,21 @@ export default function Home() {
         <p className="eyebrow">Como funciona</p>
         <h2 className="section-title">Um fluxo simples para evitar retrabalho.</h2>
         <div className="grid lp-grid" style={{ marginTop: 24 }}>
-          {[
-            { title: 'Cliente preenche o briefing', desc: 'Todas as informações necessárias em um formulário organizado e fácil.' },
-            { title: 'Admin recebe e analisa', desc: 'O briefing cai no painel admin. Se faltarem dados, solicitamos antes de começar.' },
-            { title: 'Produção no kanban', desc: 'LP passa por backlog, produção, revisão, aprovação e publicação. Histórico completo de cada etapa.' },
-          ].map((item, i) => (
-            <article className="card" style={{ padding: 24 }} key={i}>
-              <CheckCircle2 color="var(--gold)" size={32} />
-              <h3 style={{ marginTop: 12 }}>{item.title}</h3>
-              <p className="muted">{item.desc}</p>
-            </article>
-          ))}
+          <article className="card" style={{ padding: 24 }}>
+            <CheckCircle2 color="var(--gold)" size={32} />
+            <h3 style={{ marginTop: 12 }}>Cliente preenche o briefing</h3>
+            <p className="muted">Todas as informações necessárias em um formulário organizado e fácil.</p>
+          </article>
+          <article className="card" style={{ padding: 24 }}>
+            <CheckCircle2 color="var(--gold)" size={32} />
+            <h3 style={{ marginTop: 12 }}>Admin recebe e analisa</h3>
+            <p className="muted">O briefing cai no painel admin. Se faltarem dados, solicitamos antes de começar.</p>
+          </article>
+          <article className="card" style={{ padding: 24 }}>
+            <CheckCircle2 color="var(--gold)" size={32} />
+            <h3 style={{ marginTop: 12 }}>Produção no kanban</h3>
+            <p className="muted">LP passa por backlog, produção, revisão, aprovação e publicação. Histórico completo de cada etapa.</p>
+          </article>
         </div>
       </section>
 
@@ -84,17 +61,21 @@ export default function Home() {
         <p className="eyebrow">Tecnologia</p>
         <h2 className="section-title">Banco persistente e segurança em produção.</h2>
         <div className="grid" style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', marginTop: 24, gap: '1rem' }}>
-          {[
-            { icon: <Database size={24} />, title: 'Turso/libSQL', desc: 'SQLite distribuído e persistente na Vercel' },
-            { icon: <Lock size={24} />, title: 'Autenticação JWT', desc: 'Acesso seguro ao painel admin com sessão criptografada' },
-            { icon: <BarChart3 size={24} />, title: 'Dashboard em tempo real', desc: 'Métricas de briefings, status e histórico de mudanças' },
-          ].map((item, i) => (
-            <div className="card" style={{ padding: 20 }} key={i}>
-              <div style={{ color: 'var(--gold)', marginBottom: 12 }}>{item.icon}</div>
-              <h3>{item.title}</h3>
-              <p className="muted" style={{ fontSize: 14 }}>{item.desc}</p>
-            </div>
-          ))}
+          <div className="card" style={{ padding: 20 }}>
+            <div style={{ color: 'var(--gold)', marginBottom: 12 }}><Database size={24} /></div>
+            <h3>Turso/libSQL</h3>
+            <p className="muted" style={{ fontSize: 14 }}>SQLite distribuído e persistente na Vercel</p>
+          </div>
+          <div className="card" style={{ padding: 20 }}>
+            <div style={{ color: 'var(--gold)', marginBottom: 12 }}><Lock size={24} /></div>
+            <h3>Autenticação JWT</h3>
+            <p className="muted" style={{ fontSize: 14 }}>Acesso seguro ao painel admin com sessão criptografada</p>
+          </div>
+          <div className="card" style={{ padding: 20 }}>
+            <div style={{ color: 'var(--gold)', marginBottom: 12 }}><BarChart3 size={24} /></div>
+            <h3>Dashboard em tempo real</h3>
+            <p className="muted" style={{ fontSize: 14 }}>Métricas de briefings, status e histórico de mudanças</p>
+          </div>
         </div>
       </section>
 
@@ -102,17 +83,42 @@ export default function Home() {
         <p className="eyebrow">LPs publicadas na Vercel</p>
         <h2 className="section-title">Projetos em produção.</h2>
         <div className="grid lp-grid" style={{ marginTop: 24 }}>
-          {lps.map((lp) => (
-            <article className="card" style={{ padding: 24, display: 'flex', flexDirection: 'column' }} key={lp.url}>
-              <div style={{ fontSize: 48, marginBottom: 12 }}>{lp.icon}</div>
-              <span className="badge" style={{ marginBottom: 12 }}>Ao vivo</span>
-              <h3 style={{ flex: 1 }}>{lp.name}</h3>
-              <p className="muted" style={{ fontSize: 14, marginBottom: 18 }}>{lp.desc}</p>
-              <a className="btn btn-gold" href={lp.url} target="_blank" rel="noreferrer">
-                Visitar <ArrowRight size={16} />
-              </a>
-            </article>
-          ))}
+          <article className="card" style={{ padding: 24, display: 'flex', flexDirection: 'column' }}>
+            <div style={{ fontSize: 48, marginBottom: 12 }}>🔮</div>
+            <span className="badge" style={{ marginBottom: 12 }}>Ao vivo</span>
+            <h3 style={{ flex: 1 }}>Congresso Multidimensional</h3>
+            <p className="muted" style={{ fontSize: 14, marginBottom: 18 }}>Evento espiritual presencial — expansão de consciência</p>
+            <a className="btn btn-gold" href="https://congresso-multidimensional.vercel.app/" target="_blank" rel="noreferrer">
+              Visitar <ArrowRight size={16} />
+            </a>
+          </article>
+          <article className="card" style={{ padding: 24, display: 'flex', flexDirection: 'column' }}>
+            <div style={{ fontSize: 48, marginBottom: 12 }}>✨</div>
+            <span className="badge" style={{ marginBottom: 12 }}>Ao vivo</span>
+            <h3 style={{ flex: 1 }}>Ìyá Linda T'Osún</h3>
+            <p className="muted" style={{ fontSize: 14, marginBottom: 18 }}>Cursos, consultas e espiritualidade ancestral — Jogo de Búzios</p>
+            <a className="btn btn-gold" href="https://iyalinda.vercel.app/" target="_blank" rel="noreferrer">
+              Visitar <ArrowRight size={16} />
+            </a>
+          </article>
+          <article className="card" style={{ padding: 24, display: 'flex', flexDirection: 'column' }}>
+            <div style={{ fontSize: 48, marginBottom: 12 }}>📸</div>
+            <span className="badge" style={{ marginBottom: 12 }}>Ao vivo</span>
+            <h3 style={{ flex: 1 }}>Diego Guimarães</h3>
+            <p className="muted" style={{ fontSize: 14, marginBottom: 18 }}>Fotógrafo e criador de conteúdo</p>
+            <a className="btn btn-gold" href="https://lp-diego-guimaraes.vercel.app/" target="_blank" rel="noreferrer">
+              Visitar <ArrowRight size={16} />
+            </a>
+          </article>
+          <article className="card" style={{ padding: 24, display: 'flex', flexDirection: 'column' }}>
+            <div style={{ fontSize: 48, marginBottom: 12 }}>📊</div>
+            <span className="badge" style={{ marginBottom: 12 }}>Ao vivo</span>
+            <h3 style={{ flex: 1 }}>KBZA Marketing</h3>
+            <p className="muted" style={{ fontSize: 14, marginBottom: 18 }}>Agência de marketing e comunicação</p>
+            <a className="btn btn-gold" href="https://kbza-marketing-de-resultado.vercel.app/" target="_blank" rel="noreferrer">
+              Visitar <ArrowRight size={16} />
+            </a>
+          </article>
         </div>
       </section>
 
