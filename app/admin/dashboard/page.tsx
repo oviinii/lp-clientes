@@ -1,5 +1,4 @@
-import Link from 'next/link'
-import { ArrowRight, CheckCircle2, LayoutDashboard } from 'lucide-react'
+import AdminShell from '@/components/AdminShell'
 import { db, initDb } from '@/lib/db'
 import { statusLabel, STATUSES } from '@/lib/status'
 
