@@ -3,11 +3,3 @@
 node_modules/
 .vercel/
 *.zip
-.next/
-out/
-local.db
-*.db
-*.db-journal
-.env
-.env.local
-.env*.local
