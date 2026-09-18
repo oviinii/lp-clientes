@@ -1,0 +1,63 @@
+{
+  "metadados": {
+    "projeto": "Kbza Marketing de Resultado",
+    "slug": "kbza-marketing-de-resultado",
+    "gerado_em": "2026-08-11T15:30:02.647Z",
+    "arquivo_instrucoes": "PROMPT.md"
+  },
+  "empresa": {
+    "nome": "Kbza Marketing de Resultado",
+    "url_atual": "https://www.kbza.com.br/",
+    "objetivo": "Geração de leads",
+    "publico": "Para donos de escolas, donos de faculdades ou donos de escolas de cursos diversos.",
+    "tom_de_voz": "profissional",
+    "identidade_visual": "verde, cinza e branco",
+    "palavras_chave": "marketing"
+  },
+  "hero": {
+    "headline": "Dificuldades para fazer matrículas? A Kbza é especialista em captação de alunos",
+    "subtitulo": "Ajudamos a criar um funil de matrículas, desde o marketing até a matrícula!",
+    "botao_texto": "Quero saber mais",
+    "botao_destino": "https://www.kbza.com.br/",
+    "imagem": "https://quvnar9nfrey3qet.public.blob.vercel-storage.com/clientes/kbza-marketing-de-resultado/imagens/1786462202484-hero_imagem.png"
+  },
+  "sobre": {
+    "titulo": "Quem Somos",
+    "texto": "Desde 2016, trabalhamos funis de matrículas para escolas de idiomas, cursos técnicos, ensino regular, instituições de ensino superior e pós graduações.",
+    "imagem": ""
+  },
+  "beneficios": [
+    {
+      "titulo": "Funil Integrado e Eficaz",
+      "texto": "Fazer a gestão integrada do markeing e comercial, possibilidade diminuir o custo por matrícula em até 40%, identificando onde estão os gargalos e capacitando a equipe para superá-los."
+    }
+  ],
+  "depoimentos": [],
+  "passos": [
+    {
+      "titulo": "Funil de Matrículas",
+      "texto": "Identificamos a imagem da empresa no mercado e grau de visibilidade. Trabalhamos para melhorar esses pontos e montamos a jornada do matriculado. Avaliamos diarimente a geração de leads e conversão de matrículas utilizando AI para fazer followup e identificar os pontos de otimização. O resultado é salas cheias e instituição forte."
+    }
+  ],
+  "faq": [],
+  "cta_final": {
+    "titulo": "Vamos aumentar as matrículas da sua instituição de ensino?",
+    "texto": "",
+    "botao_texto": "",
+    "botao_destino": "https://www.kbza.com.br/",
+    "imagem_fundo": ""
+  },
+  "contato": {
+    "telefone": "wa.me//5519993485532",
+    "whatsapp": "wa.me//5519993485532",
+    "email": "junior@kbza.com.br",
+    "instagram": "@kbzamkt",
+    "facebook": "",
+    "endereco": ""
+  },
+  "extras": {
+    "observacoes": "",
+    "pixel_meta": "",
+    "analytics": ""
+  }
+}

@@ -1,0 +1,3 @@
+import Link from 'next/link'
+import { logoutAction } from '@/app/actions'
+export default function AdminShell({children}:{children:React.ReactNode}){const links=[['/admin/dashboard','Dashboard'],['/admin/briefings','Briefings enviados'],['/admin/kanban','Kanban']];return <div className="admin-shell"><aside className="sidebar"><h2 style={{marginTop:0}}>LP Clientes</h2>{links.map(l=><Link key={l[0]} href={l[0]}>{l[1]}</Link>)}<form action={logoutAction} style={{marginTop:24}}><button className="btn btn-gold" style={{width:'100%'}}>Sair</button></form></aside><main className="admin-main">{children}</main></div>}
