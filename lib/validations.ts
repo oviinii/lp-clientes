@@ -1,5 +1,0 @@
-import { z } from 'zod'
-export const briefingSchema=z.object({
- project_name:z.string().min(2,'Informe o nome do projeto'),responsible_name:z.string().optional(),email:z.string().email('E-mail inválido').optional().or(z.literal('')),whatsapp:z.string().optional(),instagram:z.string().optional(),website:z.string().optional(),city:z.string().optional(),project_type:z.string().optional(),main_goal:z.string().optional(),main_cta:z.string().optional(),cta_link:z.string().optional(),target_audience:z.string().optional(),audience_problem:z.string().optional(),desired_feeling:z.string().optional(),offer_description:z.string().optional(),benefits:z.string().optional(),included_items:z.string().optional(),price:z.string().optional(),bonus:z.string().optional(),deadline:z.string().optional(),guarantee_info:z.string().optional(),visual_style:z.string().optional(),colors:z.string().optional(),references_links:z.string().optional(),official_links:z.string().optional(),legal_notes:z.string().optional(),launch_date:z.string().optional(),priority:z.string().optional()
-})
-export type BriefingInput=z.infer<typeof briefingSchema>
