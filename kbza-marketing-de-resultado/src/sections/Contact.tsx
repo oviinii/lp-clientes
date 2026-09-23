@@ -46,12 +46,12 @@ export function Contact() {
   }
 
   return (
-    <section id="contato" className="relative bg-ink-3 py-24 lg:py-32">
+    <section id="contato" className="relative bg-bone py-24 lg:py-32">
       <div className="mx-auto max-w-7xl px-6 lg:px-10">
         <Reveal>
-          <h2 className="mx-auto max-w-3xl text-center font-display text-4xl font-bold leading-tight tracking-tight text-bone sm:text-5xl">
+          <h2 className="mx-auto max-w-3xl text-center font-display text-4xl font-semibold leading-tight tracking-tight text-ink sm:text-5xl">
             Vamos aumentar as matrículas da{' '}
-            <span className="text-lime">sua instituição?</span>
+            <span className="italic text-leaf-deep">sua instituição?</span>
           </h2>
         </Reveal>
 
