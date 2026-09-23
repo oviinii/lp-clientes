@@ -1,0 +1,97 @@
+@import 'tailwindcss';
+@import 'lenis/dist/lenis.css';
+
+@theme {
+  --font-display: 'Cormorant Garamond', Georgia, serif;
+  --font-sans: 'Outfit', system-ui, sans-serif;
+
+  --color-ink: #0e241a;
+  --color-ink-2: #143426;
+  --color-ink-3: #0b1e15;
+  --color-bone: #f6f1e7;
+  --color-bone-dim: #cfc4ab;
+  --color-moss: #1d5c3a;
+  --color-moss-deep: #143426;
+  --color-laterite: #b4552d;
+  --color-iron: #c4452d;
+  --color-brass: #c9a24b;
+  --color-goldsoft: #e7c873;
+  --color-line: rgba(246, 241, 231, 0.12);
+
+  --shadow-glow: 0 30px 80px -40px rgba(201, 162, 75, 0.45);
+}
+
+html {
+  scroll-behavior: auto;
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--color-ink);
+  color: var(--color-bone);
+  font-family: var(--font-sans);
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: var(--color-brass);
+  color: var(--color-ink);
+}
+
+.grain {
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  z-index: 80;
+  opacity: 0.09;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)' opacity='.9'/%3E%3C/svg%3E");
+}
+
+.rule {
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    color-mix(in srgb, var(--color-brass) 55%, transparent),
+    transparent
+  );
+}
+
+.slash {
+  width: 48px;
+  height: 1px;
+  background: var(--color-brass);
+  transform: rotate(-28deg);
+}
+
+.mask-fade {
+  -webkit-mask-image: linear-gradient(to bottom, #000 55%, transparent 100%);
+  mask-image: linear-gradient(to bottom, #000 55%, transparent 100%);
+}
+
+.adire-dots {
+  background-image: radial-gradient(rgba(201, 162, 75, 0.22) 1.5px, transparent 1.6px);
+  background-size: 22px 22px;
+}
+
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+}
