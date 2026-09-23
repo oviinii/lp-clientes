@@ -13,6 +13,7 @@ lp-clientes/                    # branch main
 ├── iyalinda/                   # LP em produção
 ├── kbza-marketing-de-resultado/# LP em produção (HTML estático)
 ├── lp-ifakorede/               # LP em produção
+├── nona-churrascaria/          # LP em produção
 └── novo-planeta-tur/           # Site em produção (Next.js)
 ```
 
