@@ -14,6 +14,7 @@ lp-clientes/
 ├── congresso-multidimensional/    # LP em produção
 ├── iyalinda/                      # LP em produção
 ├── diego-guimaraes/               # LP existente
+├── lp-ifakorede/                  # LP existente
 └── kbza-marketing-de-resultado/   # LP existente
 ```
 
@@ -103,6 +104,13 @@ Se ver isso, está tudo funcionando.
 - **Ìyá Linda T'Osún** → https://iyalinda.vercel.app/
 - **Diego Guimarães** → https://lp-diego-guimaraes.vercel.app/
 - **KBZA Marketing** → https://kbza-marketing-de-resultado.vercel.app/
+- **Bàbáláwo Ifákọ́rẹ̀dé** → projeto Vercel a partir da pasta `lp-ifakorede/`
+
+## Nova LP (regra — para aparecer no deploy da Vercel)
+
+1. Crie a pasta na raiz da **`main`** com `package.json` + `index.html` + `src/` (padrão Vite, espelhe `diego-guimaraes/`) e `.gitignore` com `node_modules` + `dist` (nunca commite `dist/`)
+2. Commit + push na `main`
+3. Na Vercel (New Project → `lp-clientes` → Edit no Root Directory): a pasta aparece na lista — selecione-a, preset **Vite** (ou **Other** p/ HTML estático, **Next.js** p/ app Next), Create Project
 
 ## Fluxo de briefingas
 
