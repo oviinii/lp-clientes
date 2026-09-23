@@ -59,6 +59,9 @@ export type Service = {
   items: string[]
   cta: string
   ctaHref: string
+  image: string
+  imageAlt: string
+  imagePair?: [string, string]
 }
 
 export const SERVICES: Service[] = [
@@ -75,6 +78,9 @@ export const SERVICES: Service[] = [
     ],
     cta: 'Avaliação grátis no WhatsApp',
     ctaHref: WA.sobrancelhas,
+    image: '/images/sobrancelhas-design.webp',
+    imageAlt:
+      'Design de sobrancelhas premium no Tatuapé — brow lamination e nano fio a fio',
   },
   {
     tag: 'Olhos & Cílios',
@@ -90,6 +96,9 @@ export const SERVICES: Service[] = [
     ],
     cta: 'Quero saber valor',
     ctaHref: WA.cilios,
+    image: '/images/cilios-hero.webp',
+    imageAlt:
+      'Extensão de cílios fio a fio premium em São Paulo — Bella Beauty Club',
   },
   {
     tag: 'Novo serviço · Lábios',
@@ -99,6 +108,9 @@ export const SERVICES: Service[] = [
     items: ['Hidralips', 'Hidralips Color', 'Nano Pigmentação Labial'],
     cta: 'Quero saber valor',
     ctaHref: WA.labios,
+    image: '/images/labios-resultado.webp',
+    imageAlt:
+      'Resultado real de Hidralips — lábios volumosos e hidratados na Bella Beauty Club Tatuapé',
   },
   {
     tag: 'Facial',
@@ -113,6 +125,8 @@ export const SERVICES: Service[] = [
     ],
     cta: 'Quero saber valor',
     ctaHref: WA.facial,
+    image: '/images/tratamento-facial.webp',
+    imageAlt: 'Tratamento facial premium — Bella Beauty Club Tatuapé',
   },
   {
     tag: 'Corporal',
@@ -126,16 +140,75 @@ export const SERVICES: Service[] = [
     ],
     cta: 'Quero começar o protocolo',
     ctaHref: WA.estrias,
+    image: '/images/estrias-depois.webp',
+    imageAlt:
+      'Estrias depois do Protocolo Estria Free — resultado real Bella Beauty Club Tatuapé',
+    imagePair: ['/images/estrias-antes.webp', '/images/estrias-depois.webp'],
   },
 ]
 
-export const RESULTS = [
-  'Design de Sobrancelhas',
-  'Sobrancelhas + Lash Lifting',
-  'Efeito Kim Kardashian',
-  'Cílios Fio a Fio',
-  'Volume Brasileiro',
-  'Cílios Marrom · Efeito Natural',
+export type WorkImage = {
+  src: string
+  label: string
+  alt: string
+}
+
+export const RESULTS: WorkImage[] = [
+  {
+    src: '/images/trabalho-sobrancelhas-design-tatuape.webp',
+    label: 'Design de Sobrancelhas',
+    alt: 'Resultado real de design de sobrancelhas no Tatuapé — Bella Beauty Club',
+  },
+  {
+    src: '/images/trabalho-sobrancelhas-lash-lifting-tatuape.webp',
+    label: 'Sobrancelhas + Lash Lifting',
+    alt: 'Design de sobrancelhas com lash lifting — Bella Beauty Club Tatuapé',
+  },
+  {
+    src: '/images/trabalho-cilios-volume-tatuape.webp',
+    label: 'Efeito Kim Kardashian',
+    alt: 'Cílios efeito Kim Kardashian no Tatuapé — Bella Beauty Club',
+  },
+  {
+    src: '/images/trabalho-cilios-fio-a-fio-tatuape.webp',
+    label: 'Cílios Fio a Fio',
+    alt: 'Cílios fio a fio premium no Tatuapé — Bella Beauty Club',
+  },
+  {
+    src: '/images/trabalho-cilios-volume-brasileiro-tatuape.webp',
+    label: 'Volume Brasileiro',
+    alt: 'Volume brasileiro de cílios — resultado real Bella Beauty Tatuapé',
+  },
+  {
+    src: '/images/trabalho-cilios-marrom-flavia-tatuape.jpg',
+    label: 'Cílios Marrom · Efeito Natural',
+    alt: 'Cílios marrom efeito natural em olhos claros — resultado real Bella Beauty Tatuapé',
+  },
+  {
+    src: '/images/galeria-cilios-tatuape-1.jpg',
+    label: 'Extensão de Cílios',
+    alt: 'Extensão de cílios no Tatuapé — resultado real Bella Beauty',
+  },
+  {
+    src: '/images/galeria-cilios-tatuape-2.jpg',
+    label: 'Cílios Efeito Natural',
+    alt: 'Cílios efeito natural no Tatuapé — resultado real Bella Beauty',
+  },
+  {
+    src: '/images/galeria-cilios-tatuape-3.jpg',
+    label: 'Extensão de Cílios',
+    alt: 'Extensão de cílios volume no Tatuapé — resultado real Bella Beauty',
+  },
+  {
+    src: '/images/galeria-cilios-tatuape-4.jpg',
+    label: 'Extensão de Cílios',
+    alt: 'Cílios alongados no Tatuapé — resultado real Bella Beauty',
+  },
+  {
+    src: '/images/galeria-sobrancelha-design-tatuape.jpg',
+    label: 'Design de Sobrancelhas',
+    alt: 'Design de sobrancelhas no Tatuapé — resultado real Bella Beauty',
+  },
 ]
 
 export const DOMICILIO_AREAS = [

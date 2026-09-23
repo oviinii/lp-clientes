@@ -42,6 +42,12 @@ export function Cursos() {
       <div className="mx-auto mt-12 max-w-4xl px-6 lg:px-10">
         <Reveal>
           <article className="overflow-hidden rounded-[2rem] bg-ink text-cream">
+            <img
+              src="/images/curso-extensao-cilios-tatuape.jpg"
+              alt="Curso de extensão de cílios no Tatuapé — aplicação profissional fio a fio e volume"
+              loading="lazy"
+              className="aspect-[21/9] w-full object-cover"
+            />
             <div className="p-8 md:p-12">
               <p className="eyebrow text-gold">{featured.tag}</p>
               <h2 className="mt-3 font-display text-4xl md:text-5xl">

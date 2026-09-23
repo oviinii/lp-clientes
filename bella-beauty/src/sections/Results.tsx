@@ -16,19 +16,19 @@ export function Results() {
       </Reveal>
 
       <div className="mt-10 grid grid-cols-2 gap-3 md:grid-cols-3">
-        {RESULTS.map((label, i) => (
-          <Reveal key={label} delay={Math.min(i * 0.06, 0.3)}>
-            <div className="group relative aspect-[3/4] overflow-hidden rounded-2xl bg-gradient-to-br from-blush via-cream-2 to-[#e4cdbd]">
-              <div
-                aria-hidden
-                className="absolute inset-0 opacity-40 bg-[radial-gradient(80%_60%_at_50%_20%,rgba(168,87,81,0.35),transparent_70%)]"
+        {RESULTS.map((work, i) => (
+          <Reveal key={work.src} delay={Math.min(i * 0.05, 0.3)}>
+            <figure className="group relative aspect-[3/4] overflow-hidden rounded-2xl bg-blush">
+              <img
+                src={work.src}
+                alt={work.alt}
+                loading="lazy"
+                className="h-full w-full object-cover transition duration-700 group-hover:scale-105"
               />
-              <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-ink/70 to-transparent p-4 pt-10">
-                <p className="font-sans text-sm font-medium text-white">
-                  {label}
-                </p>
-              </div>
-            </div>
+              <figcaption className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-ink/70 to-transparent p-4 pt-10 font-sans text-sm font-medium text-white">
+                {work.label}
+              </figcaption>
+            </figure>
           </Reveal>
         ))}
       </div>

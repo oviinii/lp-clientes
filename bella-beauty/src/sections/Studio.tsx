@@ -44,7 +44,15 @@ export function Studio() {
         </Reveal>
 
         <Reveal delay={0.12}>
-          <div className="grid grid-cols-3 gap-3">
+          <figure className="overflow-hidden rounded-3xl shadow-soft">
+            <img
+              src="/images/foto-fundadora.webp"
+              alt="Fundadora da Bella Beauty Club — especialista em design de sobrancelhas no Tatuapé, São Paulo"
+              loading="lazy"
+              className="aspect-[4/3] w-full object-cover"
+            />
+          </figure>
+          <div className="mt-3 grid grid-cols-3 gap-3">
             {[
               ['5,0★', 'Avaliação Google'],
               ['500+', 'Clientes satisfeitas'],
