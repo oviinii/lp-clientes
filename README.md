@@ -7,6 +7,7 @@ As **LPs de clientes** moram em pastas separadas na raiz, cada uma autocontida p
 ```
 lp-clientes/                    # branch main
 ├── src/                        # LP da agência Zinbox (Root Directory ./)
+├── bella-beauty/               # LP em produção
 ├── congresso-multidimensional/ # LP em produção
 ├── diego-guimaraes/            # LP em produção
 ├── iyalinda/                   # LP em produção
