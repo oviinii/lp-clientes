@@ -2,18 +2,19 @@
 @import 'lenis/dist/lenis.css';
 
 @theme {
-  --font-display: 'Sora', system-ui, sans-serif;
+  --font-display: 'Fraunces', Georgia, serif;
   --font-sans: 'Inter', system-ui, sans-serif;
 
-  --color-ink: #0c3b2e;
-  --color-ink-2: #0a2f25;
-  --color-ink-3: #08241c;
-  --color-bone: #f7f8f6;
-  --color-bone-dim: #c3cec8;
+  --color-ink: #0d2f52;
+  --color-ink-2: #0a2540;
+  --color-ink-3: #071c31;
+  --color-bone: #faf7ef;
+  --color-bone-dim: #b9c6d2;
   --color-leaf: #22c55e;
-  --color-leaf-deep: #15803d;
+  --color-leaf-deep: #166534;
   --color-lime: #bef264;
-  --color-line: rgba(247, 248, 246, 0.12);
+  --color-gold: #c9a24b;
+  --color-line: rgba(250, 247, 239, 0.12);
 
   --shadow-glow: 0 30px 80px -40px rgba(34, 197, 94, 0.45);
 }
