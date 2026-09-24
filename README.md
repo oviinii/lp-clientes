@@ -14,7 +14,8 @@ lp-clientes/                    # branch main
 ├── kbza-marketing-de-resultado/# LP em produção (HTML estático)
 ├── lp-ifakorede/               # LP em produção
 ├── nona-churrascaria/          # LP em produção
-└── novo-planeta-tur/           # Site em produção (Next.js)
+├── novo-planeta-tur/           # Site em produção (Next.js)
+└── use-fuelfit/                # LP em produção
 ```
 
 O sistema de briefings/admin vive na branch **`admin`**. O CRM Zinbox é um repositório/projeto separado.
