@@ -1,5 +1,6 @@
 import { useLenis } from './lib/useLenis'
 import { Navbar } from './components/Navbar'
+import { Marquee } from './components/Marquee'
 import { Footer } from './components/Footer'
 import { InstaFloat } from './components/InstaFloat'
 import { Hero } from './sections/Hero'
@@ -20,6 +21,7 @@ function App() {
       <Navbar />
       <main id="main" className="min-h-screen">
         <Hero />
+        <Marquee />
         <Collection />
         <Why />
         <Looks />

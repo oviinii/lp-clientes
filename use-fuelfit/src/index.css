@@ -5,18 +5,40 @@
   --font-display: 'Playfair Display', Georgia, serif;
   --font-sans: 'Jost', system-ui, sans-serif;
 
-  --color-cocoa-950: #14100c;
-  --color-cocoa-900: #1e1611;
-  --color-cocoa-800: #2a1e16;
-  --color-cream: #f3ebe0;
-  --color-cream-dim: #cfbda6;
+  --color-oat: #f6f1e8;
+  --color-oat-2: #ede2d2;
+  --color-card: #fffdf9;
+  --color-cocoa: #241811;
+  --color-cocoa-2: #4d3a2a;
+  --color-cocoa-dim: #8a7460;
   --color-mocha: #8a5a3b;
   --color-mocha-deep: #6f452b;
   --color-caramel: #c98d54;
-  --color-gold: #c9a227;
-  --color-line: rgba(243, 235, 224, 0.14);
+  --color-gold: #b98f1f;
+  --color-line: rgba(36, 24, 17, 0.14);
 
-  --shadow-glow: 0 30px 80px -40px rgba(201, 141, 84, 0.5);
+  --shadow-lift: 0 24px 60px -30px rgba(111, 69, 43, 0.4);
+
+  --animate-marquee: marquee 28s linear infinite;
+  --animate-shimmer: shimmer 2.8s linear infinite;
+
+  @keyframes marquee {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+  }
+
+  @keyframes shimmer {
+    from {
+      background-position: 200% center;
+    }
+    to {
+      background-position: -200% center;
+    }
+  }
 }
 
 html {
@@ -31,8 +53,8 @@ body,
 
 body {
   margin: 0;
-  background: var(--color-cocoa-950);
-  color: var(--color-cream);
+  background: var(--color-oat);
+  color: var(--color-cocoa);
   font-family: var(--font-sans);
   font-weight: 400;
   letter-spacing: 0.01em;
@@ -50,19 +72,9 @@ body {
   position: fixed;
   inset: 0;
   z-index: 80;
-  opacity: 0.09;
-  mix-blend-mode: overlay;
+  opacity: 0.05;
+  mix-blend-mode: multiply;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)' opacity='.9'/%3E%3C/svg%3E");
-}
-
-.rule {
-  height: 1px;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    color-mix(in srgb, var(--color-gold) 55%, transparent),
-    transparent
-  );
 }
 
 .eyebrow {
@@ -70,6 +82,47 @@ body {
   font-size: 0.72rem;
   letter-spacing: 0.32em;
   text-transform: uppercase;
+}
+
+/* Magic UI–style shimmer button */
+.btn-shimmer {
+  background-image: linear-gradient(
+    110deg,
+    var(--color-cocoa) 40%,
+    var(--color-mocha) 50%,
+    var(--color-cocoa) 60%
+  );
+  background-size: 200% auto;
+  animation: var(--animate-shimmer);
+}
+
+/* Aceternity-style spotlight card */
+.spotlight {
+  position: relative;
+  overflow: hidden;
+}
+.spotlight::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  background: radial-gradient(
+    480px circle at var(--spot-x, 50%) var(--spot-y, 50%),
+    rgba(201, 141, 84, 0.16),
+    transparent 65%
+  );
+  pointer-events: none;
+}
+.spotlight:hover::before {
+  opacity: 1;
+}
+
+.no-scrollbar {
+  scrollbar-width: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
 }
 
 input,

@@ -66,13 +66,43 @@ export const REASONS = [
   },
 ]
 
-export const LOOKS = [
-  'Mocha Set Completo',
-  'All Black Oversized',
-  'Conjunto Terroso',
-  'Legging + Top Café',
-  'Look Corrida Bege',
-  'Essencial Preto',
+export type Look = {
+  src: string
+  label: string
+  alt: string
+}
+
+export const LOOKS: Look[] = [
+  {
+    src: '/images/look-1.jpg',
+    label: 'Mocha Set Completo',
+    alt: 'Modelo treinando com conjunto fitness terroso — Fuel Fit',
+  },
+  {
+    src: '/images/look-2.jpg',
+    label: 'Yoga Bege',
+    alt: 'Prática de yoga com look claro — Fuel Fit',
+  },
+  {
+    src: '/images/look-3.jpg',
+    label: 'Flow ao Pôr do Sol',
+    alt: 'Treino ao ar livre com peça versátil — Fuel Fit',
+  },
+  {
+    src: '/images/look-4.jpg',
+    label: 'Look Corrida',
+    alt: 'Corrida com conjunto de performance — Fuel Fit',
+  },
+  {
+    src: '/images/look-5.jpg',
+    label: 'Essencial Academia',
+    alt: 'Treino de força com legging e top — Fuel Fit',
+  },
+  {
+    src: '/images/look-6.jpg',
+    label: 'Energia Total',
+    alt: 'Treino intenso com look all black — Fuel Fit',
+  },
 ]
 
 export const PRAISE = [

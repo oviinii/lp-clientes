@@ -7,40 +7,43 @@ export function Faq() {
   const [open, setOpen] = useState<number | null>(0)
 
   return (
-    <section id="faq" className="mx-auto max-w-4xl px-6 py-20 lg:px-10">
-      <Reveal className="text-center">
-        <p className="eyebrow text-caramel">Dúvidas frequentes</p>
-        <h2 className="mt-3 font-display text-4xl text-cream md:text-5xl">
+    <section id="faq" className="mx-auto max-w-4xl px-6 pb-20 lg:px-10">
+      <Reveal className="text-left">
+        <p className="eyebrow text-mocha">Dúvidas frequentes</p>
+        <h2 className="mt-3 font-display text-5xl text-cocoa md:text-6xl">
           Antes de garantir o seu look
         </h2>
       </Reveal>
 
-      <div className="mt-10 divide-y divide-line rounded-3xl border border-line bg-cocoa-900/60 px-6 md:px-8">
+      <div className="mt-10 overflow-hidden rounded-[2rem] bg-card shadow-lift ring-1 ring-line">
         {FAQ.map((item, i) => {
           const isOpen = open === i
           return (
-            <div key={item.q}>
+            <div
+              key={item.q}
+              className={i > 0 ? 'border-t border-line' : undefined}
+            >
               <button
                 type="button"
                 onClick={() => setOpen(isOpen ? null : i)}
                 aria-expanded={isOpen}
-                className="flex w-full items-center justify-between gap-4 py-5 text-left"
+                className="flex w-full items-center justify-between gap-4 px-7 py-5 text-left transition hover:bg-oat-2/50 md:px-9"
               >
-                <span className="font-display text-lg text-cream md:text-xl">
+                <span className="font-display text-lg text-cocoa md:text-xl">
                   {item.q}
                 </span>
                 <span
-                  className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-full border transition ${
+                  className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-full transition ${
                     isOpen
-                      ? 'rotate-45 border-caramel bg-caramel text-white'
-                      : 'border-cream/30 text-cream'
+                      ? 'rotate-45 bg-cocoa text-white'
+                      : 'bg-oat-2 text-cocoa'
                   }`}
                 >
                   <Plus size={16} />
                 </span>
               </button>
               {isOpen && (
-                <p className="pb-6 font-sans text-[15px] leading-relaxed text-cream-dim">
+                <p className="px-7 pb-6 font-sans text-[15px] leading-relaxed text-cocoa-2 md:px-9">
                   {item.a}
                 </p>
               )}
@@ -49,14 +52,14 @@ export function Faq() {
         })}
       </div>
 
-      <Reveal className="mt-8 text-center">
+      <Reveal className="mt-8">
         <a
           href={INSTAGRAM_URL}
           target="_blank"
           rel="noreferrer"
-          className="inline-flex rounded-full border border-cream/30 px-8 py-4 font-sans text-sm uppercase tracking-[0.18em] text-cream transition hover:border-caramel hover:text-caramel"
+          className="font-sans text-sm uppercase tracking-[0.2em] text-mocha underline-offset-8 hover:underline"
         >
-          Perguntar no Direct
+          Perguntar no Direct →
         </a>
       </Reveal>
     </section>
