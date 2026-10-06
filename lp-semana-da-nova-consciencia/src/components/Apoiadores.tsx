@@ -1,19 +1,36 @@
+import { Handshake } from 'lucide-react';
+
+/**
+ * Sessão 11 do briefing — apoiadores.
+ * PENDÊNCIA DE CONTEÚDO: os logotipos oficiais dos apoiadores ainda não foram enviados.
+ * Os espaços abaixo ficam reservados (sem placeholders falsos de marca) até o recebimento.
+ */
 export function Apoiadores() {
   return (
-    <section className="py-20 bg-white">
-      <div className="container mx-auto px-4 text-center">
-        <h2 className="text-3xl font-bold mb-12 text-gray-800">Conheça nossos apoiadores</h2>
-        <div className="flex flex-wrap justify-center gap-12 items-center opacity-60 grayscale hover:grayscale-0 transition-all duration-500">
-          <div className="w-32 h-32 bg-gray-200 rounded-full flex items-center justify-center font-bold text-gray-400">
-            LOGO 1
-          </div>
-          <div className="w-32 h-32 bg-gray-200 rounded-full flex items-center justify-center font-bold text-gray-400">
-            LOGO 2
-          </div>
-          <div className="w-32 h-32 bg-gray-200 rounded-full flex items-center justify-center font-bold text-gray-400">
-            LOGO 3
-          </div>
+    <section className="relative overflow-hidden bg-brand-light py-20 text-brand-ink">
+      <div className="container relative z-10 mx-auto px-4 text-center">
+        <span className="chip">Parceiros</span>
+        <h2 className="mt-5 text-2xl font-extrabold text-brand-night sm:text-3xl">
+          Conheça nossos apoiadores
+        </h2>
+
+        <div className="mt-12 flex flex-wrap items-center justify-center gap-6">
+          {[1, 2, 3, 4].map((i) => (
+            <div
+              key={i}
+              className="flex h-28 w-44 items-center justify-center rounded-2xl border border-dashed border-brand-night/20 bg-white/60 text-xs font-bold uppercase tracking-[0.16em] text-brand-night/35"
+            >
+              <span className="flex items-center gap-2">
+                <Handshake size={16} />
+                Apoiador {i}
+              </span>
+            </div>
+          ))}
         </div>
+
+        <p className="mt-8 text-sm text-brand-night/60">
+          Quer apoiar a Semana da Nova Consciência? Fale com a nossa equipe.
+        </p>
       </div>
     </section>
   );

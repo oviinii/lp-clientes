@@ -15,20 +15,23 @@ import { Footer } from './components/Footer';
 
 function App() {
   return (
-    <div className="font-sans antialiased overflow-x-hidden selection:bg-brand-gold selection:text-white">
+    <div className="overflow-x-hidden bg-brand-night font-sans antialiased">
       <Header />
-      <div id="inicio"><Hero /></div>
-      <Pilares />
-      <div id="depoimentos"><Depoimentos /></div>
-      <div id="programacao"><Programacao /></div>
-      <Mentora />
-      <Egregora />
-      <div id="palestrantes"><Palestrantes /></div>
-      <Comparacao />
-      <Frase />
-      <div id="ingressos"><Oferta /></div>
-      <Apoiadores />
-      <div id="faq"><FAQ /></div>
+      <main>
+        {/* Ordem das seções conforme o briefing (Sessões 01 a 12) */}
+        <Hero />
+        <Pilares />
+        <Depoimentos />
+        <Programacao />
+        <Mentora />
+        <Egregora />
+        <Palestrantes />
+        <Comparacao />
+        <Frase />
+        <Oferta />
+        <Apoiadores />
+        <FAQ />
+      </main>
       <Footer />
     </div>
   );

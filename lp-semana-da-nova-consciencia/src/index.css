@@ -2,24 +2,163 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  font-family: 'Montserrat', sans-serif;
+@layer base {
+  :root {
+    color-scheme: dark;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #03062f;
+    color: #e8ecf8;
+    font-family: 'Montserrat', system-ui, -apple-system, sans-serif;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  ::selection {
+    background: #f3b100;
+    color: #03062f;
+  }
 }
 
-html {
-  scroll-behavior: smooth;
+@layer components {
+  /* Botão principal — amarelo da campanha sobre navy */
+  .btn-gold {
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-brand-gold px-8 py-4
+      text-base font-bold text-brand-night shadow-gold transition-all duration-300
+      hover:scale-[1.03] hover:bg-brand-goldDeep
+      focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-gold/60 focus-visible:ring-offset-2 focus-visible:ring-offset-brand-night;
+  }
+
+  /* Botão secundário — contorno claro sobre navy */
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 rounded-full border border-white/25 px-8 py-4
+      text-base font-semibold text-brand-ice transition-colors duration-300
+      hover:border-brand-gold hover:text-brand-gold;
+  }
+
+  /* Etiqueta/eyebrow */
+  .chip {
+    @apply inline-flex items-center gap-2 rounded-full border border-brand-gold/40 bg-brand-gold/10
+      px-4 py-1.5 text-[11px] font-bold uppercase tracking-[0.18em] text-brand-gold;
+  }
+
+  /* Card escuro sobre fundo escuro */
+  .card-dark {
+    @apply rounded-3xl border border-white/10 bg-brand-deep/80 backdrop-blur-sm;
+  }
+
+  /* Card escuro sobre fundo claro (contraste exigido no briefing) */
+  .card-cosmic {
+    @apply relative overflow-hidden rounded-3xl border border-brand-gold/25 bg-brand-night text-brand-ice shadow-card;
+  }
 }
 
-body {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  background-color: #000;
-  color: #fff;
+@layer utilities {
+  .text-gold-gradient {
+    background: linear-gradient(100deg, #f3b100 0%, #ffd166 45%, #e0a818 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  /* Fundo cósmico: navy + nebulosas azul/amarela (identidade dos criativos) */
+  .cosmic {
+    background-color: #03062f;
+    background-image:
+      radial-gradient(circle at 12% 18%, rgba(16, 40, 160, 0.38), transparent 42%),
+      radial-gradient(circle at 88% 8%, rgba(32, 60, 101, 0.5), transparent 48%),
+      radial-gradient(circle at 50% 108%, rgba(243, 177, 0, 0.14), transparent 55%);
+  }
+
+  /* Campo de estrelas (usar em elemento com position absolute/relative e inset-0) */
+  .stars {
+    background-image:
+      radial-gradient(1.6px 1.6px at 22px 34px, rgba(255, 255, 255, 0.9) 50%, transparent 51%),
+      radial-gradient(1.2px 1.2px at 140px 92px, rgba(255, 255, 255, 0.7) 50%, transparent 51%),
+      radial-gradient(1.8px 1.8px at 78px 168px, rgba(255, 255, 255, 0.55) 50%, transparent 51%),
+      radial-gradient(1px 1px at 196px 208px, rgba(255, 255, 255, 0.65) 50%, transparent 51%),
+      radial-gradient(1.4px 1.4px at 260px 58px, rgba(255, 255, 255, 0.5) 50%, transparent 51%),
+      radial-gradient(1px 1px at 320px 150px, rgba(255, 255, 255, 0.6) 50%, transparent 51%);
+    background-size: 360px 260px;
+    background-repeat: repeat;
+  }
+
+  /* Anéis de geometria sagrada (criativos do evento) */
+  .rings {
+    background-image: repeating-radial-gradient(
+      circle at 50% 50%,
+      rgba(255, 255, 255, 0.07) 0 1px,
+      transparent 1px 86px
+    );
+    -webkit-mask-image: radial-gradient(circle at 50% 50%, #000 18%, transparent 72%);
+    mask-image: radial-gradient(circle at 50% 50%, #000 18%, transparent 72%);
+  }
+
+  /* Anéis dourados, mais quentes — usado em portais/halos */
+  .rings-gold {
+    background-image: repeating-radial-gradient(
+      circle at 50% 50%,
+      rgba(243, 177, 0, 0.22) 0 1px,
+      transparent 1px 64px
+    );
+    -webkit-mask-image: radial-gradient(circle at 50% 50%, #000 25%, transparent 70%);
+    mask-image: radial-gradient(circle at 50% 50%, #000 25%, transparent 70%);
+  }
+
+  /* Brilho varrendo o botão (efeito de campanha) */
+  .shine {
+    background-image: linear-gradient(
+      100deg,
+      transparent 20%,
+      rgba(255, 255, 255, 0.45) 42%,
+      transparent 64%
+    );
+    background-size: 220% 100%;
+  }
+
+  .glow-gold {
+    box-shadow: 0 0 90px rgba(243, 177, 0, 0.28);
+  }
 }
 
-.text-gradient {
-  background: linear-gradient(to right, #fbbf24, #f59e0b);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+/* Partículas flutuantes da seção "Frase" (identidade lúdica) */
+@keyframes particleRise {
+  0% {
+    transform: translate3d(0, 20px, 0) scale(0.6);
+    opacity: 0;
+  }
+  20% {
+    opacity: 0.9;
+  }
+  100% {
+    transform: translate3d(0, -180px, 0) scale(1.1);
+    opacity: 0;
+  }
+}
+
+.particle {
+  position: absolute;
+  border-radius: 9999px;
+  background: radial-gradient(circle, #ffd166 0%, rgba(243, 177, 0, 0.6) 45%, transparent 70%);
+  animation: particleRise linear infinite;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .particle,
+  .stars,
+  .animate-floaty,
+  .animate-twinkle,
+  .animate-glow-pulse,
+  .animate-shine {
+    animation: none !important;
+  }
 }

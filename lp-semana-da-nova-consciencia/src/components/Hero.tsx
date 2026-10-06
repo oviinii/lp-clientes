@@ -1,41 +1,148 @@
 import { motion } from 'framer-motion';
+import { ArrowRight, CalendarDays, Clock3, PlayCircle, Sparkles } from 'lucide-react';
+
+const provas = [
+  { valor: '5 dias', rotulo: 'de imersão ao vivo' },
+  { valor: '25+', rotulo: 'palestras e vivências' },
+  { valor: '100%', rotulo: 'online, de qualquer lugar' },
+];
 
 export function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-brand-violet to-brand-gold/30">
-      <div className="absolute inset-0 z-0">
-        <img 
-          src="/imagens/IMG_8663.jpg" 
-          alt="Platéia" 
-          className="w-full h-full object-cover opacity-20 mix-blend-overlay"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-black/50"></div>
-      </div>
-      
-      <div className="container mx-auto px-4 z-10 text-center relative pt-20">
+    <section id="inicio" className="cosmic relative flex min-h-screen items-center overflow-hidden">
+      {/* Identidade do criativo principal: campo de estrelas + anéis de geometria sagrada + halo dourado */}
+      <div className="stars absolute inset-0 animate-twinkle opacity-60" aria-hidden="true" />
+      <div className="rings absolute -right-1/4 top-1/2 h-[140vh] w-[140vh] -translate-y-1/2" aria-hidden="true" />
+      <div
+        className="absolute -left-40 top-10 h-[520px] w-[520px] rounded-full bg-brand-blue/25 blur-[130px]"
+        aria-hidden="true"
+      />
+      <div
+        className="absolute -bottom-40 right-10 h-[520px] w-[520px] animate-glow-pulse rounded-full bg-brand-gold/15 blur-[140px]"
+        aria-hidden="true"
+      />
+
+      <div className="container relative z-10 mx-auto grid items-center gap-14 px-4 pb-20 pt-36 lg:grid-cols-[1.05fr_0.95fr] lg:gap-10 lg:pt-40">
+        {/* Coluna de texto — alinhada à esquerda conforme briefing */}
+        <div className="text-left">
+          <motion.span
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="chip"
+          >
+            <Sparkles size={14} />
+            Prepare-se para 2027
+          </motion.span>
+
+          <motion.h1
+            initial={{ opacity: 0, y: 24 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.1 }}
+            className="mt-6 text-[2.6rem] font-extrabold leading-[1.05] tracking-tight text-white sm:text-5xl lg:text-6xl xl:text-7xl"
+          >
+            Semana da
+            <br />
+            <span className="text-gold-gradient">Nova Consciência</span>
+          </motion.h1>
+
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.2 }}
+            className="mt-5 font-serif text-xl italic text-brand-ice/90 sm:text-2xl"
+          >
+            O ano do salto de consciência
+          </motion.p>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.28 }}
+            className="mt-7 flex flex-wrap items-center gap-3"
+          >
+            <span className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-2 text-sm font-semibold text-brand-ice">
+              <CalendarDays size={16} className="text-brand-gold" />
+              De 2 a 6 de dezembro
+            </span>
+            <span className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-2 text-sm font-semibold text-brand-ice">
+              <PlayCircle size={16} className="text-brand-gold" />
+              Evento 100% online
+            </span>
+          </motion.div>
+
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.36 }}
+            className="mt-6 max-w-xl text-base leading-relaxed text-brand-muted sm:text-lg"
+          >
+            Mais de 25 palestras, entrevistas e vivências para romper padrões antigos e manifestar uma nova
+            realidade em 2027.
+          </motion.p>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.44 }}
+            className="mt-9 flex flex-col gap-4 sm:flex-row sm:items-center"
+          >
+            <a href="#ingressos" className="btn-gold">
+              Garantir minha vaga
+              <ArrowRight size={18} />
+            </a>
+            <a href="#programacao" className="btn-ghost">
+              <Clock3 size={18} />
+              Ver a programação
+            </a>
+          </motion.div>
+
+          <motion.dl
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.8, delay: 0.55 }}
+            className="mt-12 grid max-w-xl grid-cols-3 gap-4 border-t border-white/10 pt-7"
+          >
+            {provas.map((p) => (
+              <div key={p.rotulo}>
+                <dt className="text-2xl font-extrabold text-brand-gold sm:text-3xl">{p.valor}</dt>
+                <dd className="mt-1 text-xs leading-snug text-brand-muted sm:text-sm">{p.rotulo}</dd>
+              </div>
+            ))}
+          </motion.dl>
+        </div>
+
+        {/* Visual: identidade do criativo principal do evento (portal + arte cósmica) */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
+          initial={{ opacity: 0, scale: 0.92 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.9, delay: 0.2 }}
+          className="relative mx-auto w-full max-w-md lg:max-w-none"
         >
-          <img 
-            src="/logos/logo-horizontal-1.png" 
-            alt="Semana da Nova Consciência" 
-            className="mx-auto mb-6 w-72 md:w-[420px] h-auto object-contain drop-shadow-[0_0_15px_rgba(205,161,60,0.3)]"
-          />
-          <h2 className="text-2xl md:text-3xl font-medium mb-6 text-gray-200">
-            Prepare-se para 2027: O Ano do Salto de Consciência
-          </h2>
-          <p className="text-xl mb-8 font-light text-brand-gold">
-            De 2 a 6 de dezembro | Evento 100% online
-          </p>
-          <p className="max-w-2xl mx-auto text-lg mb-10 text-gray-300">
-            Mais de 25 Palestras, Entrevistas e Vivências para romper padrões antigos e manifestar uma nova realidade em 2027.
-          </p>
-          
-          <button className="bg-gradient-to-r from-brand-gold to-yellow-600 text-white font-bold text-xl py-4 px-10 rounded-full hover:scale-105 transition-transform shadow-[0_0_20px_rgba(205,161,60,0.5)]">
-            Garantir minha vaga
-          </button>
+          <div className="rings-gold absolute inset-[-12%] animate-glow-pulse" aria-hidden="true" />
+          <div className="relative overflow-hidden rounded-[2.5rem] border border-brand-gold/30 bg-brand-deep/60 p-2 shadow-glow backdrop-blur-sm">
+            <img
+              src="/imagens/imagem de capa2.webp"
+              alt="Arte cósmica da Semana da Nova Consciência: silhueta iluminada cercada por planetas e geometria sagrada"
+              className="h-full w-full rounded-[2rem] object-cover"
+              width={1024}
+              height={1024}
+            />
+            <div
+              className="pointer-events-none absolute inset-0 rounded-[2.5rem] bg-gradient-to-t from-brand-night/70 via-transparent to-transparent"
+              aria-hidden="true"
+            />
+          </div>
+
+          <div className="animate-floaty absolute -bottom-4 -left-2 rounded-2xl border border-brand-gold/30 bg-brand-night/90 px-5 py-3 shadow-gold backdrop-blur sm:-left-6">
+            <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-brand-gold">Ao vivo</p>
+            <p className="text-sm font-bold text-white">De 2 a 6 de dezembro</p>
+          </div>
+
+          <div className="absolute -right-2 top-6 rounded-2xl border border-white/15 bg-brand-night/90 px-5 py-3 shadow-card backdrop-blur sm:-right-5">
+            <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-brand-gold">Vagas limitadas</p>
+            <p className="text-sm font-bold text-white">Lote 1 · 50% off</p>
+          </div>
         </motion.div>
       </div>
     </section>

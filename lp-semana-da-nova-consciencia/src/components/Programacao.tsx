@@ -1,55 +1,127 @@
 import { motion } from 'framer-motion';
 
+/**
+ * Sessão 03 do briefing.
+ * Identidade pedida (grifado): "Fundo claro com as caixinhas referentes aos dias e imagens
+ * condizentes com os títulos dos dias. As caixinhas precisam dar contraste no fundo claro,
+ * com identidade cósmica ou galáxia."
+ * Solução: seção em fundo claro (brand-light) + caixas em navy cósmico com estrelas e anéis,
+ * cada uma com uma imagem relacionada ao tema do dia e o verbo do criativo oficial.
+ */
+const dias = [
+  {
+    dia: 1,
+    verbo: 'Reconhecer',
+    tema: 'Entendimento do cenário',
+    titulo: '2027 está chegando: o que vai mudar na humanidade e como isso afetará minha vida?',
+    img: '/imagens/opt/IMG_8663.jpg',
+    alt: 'Plateia reunida no último congresso, com as mãos levantadas',
+  },
+  {
+    dia: 2,
+    verbo: 'Compreender',
+    tema: 'Compreender a estrutura oculta',
+    titulo: 'Descubra as estratégias invisíveis de quem ainda tenta programar sua mente.',
+    img: '/imagens/imagem de capa2.webp',
+    alt: 'Arte cósmica com silhueta iluminada, planetas e geometria sagrada',
+  },
+  {
+    dia: 3,
+    verbo: 'Libertar',
+    tema: 'Libertar-se das correntes de escassez emocional',
+    titulo: 'Reconheça padrões, crenças e feridas e veja como curá-los.',
+    img: '/imagens/Roda de Cura Tridimensional.jpg',
+    alt: 'Roda de cura tridimensional conduzida no palco do evento',
+  },
+  {
+    dia: 4,
+    verbo: 'Ativar',
+    tema: 'Ativar a consciência capaz de desejar e realizar',
+    titulo: 'Ancore realizações infinitas com ferramentas de práticas quânticas seguras.',
+    img: '/imagens/opt/IMG_8902.jpg',
+    alt: 'Mentora conduzindo o evento no palco',
+  },
+  {
+    dia: 5,
+    verbo: 'Atravessar',
+    tema: 'Extrair o melhor dos portais abertos no próximo ano',
+    titulo: 'Como aproveitar o salto de consciência de 2027 para manifestar saúde, amor e prosperidade.',
+    img: '/imagens/opt/CONGRESSOMULTIDIMENSIONAL-00127.jpg',
+    alt: 'Palco do congresso com telão e a mentora em destaque',
+  },
+];
+
 export function Programacao() {
-  const dias = [
-    {
-      dia: "1º Dia: Entendimento do cenário",
-      titulo: "2027 está chegando: o que vai mudar na humanidade e como isso afetará minha vida?"
-    },
-    {
-      dia: "2º Dia: Compreender a estrutura oculta",
-      titulo: "Descubra as estratégias invisíveis de quem ainda tenta programar sua mente"
-    },
-    {
-      dia: "3º Dia: Libertar-se das correntes de escassez emocional",
-      titulo: "Reconheça padrões, crenças e feridas e veja como curá-los"
-    },
-    {
-      dia: "4º Dia: Ativar a consciência capaz de desejar e realizar",
-      titulo: "Ancore realizações infinitas com ferramentas de práticas quânticas seguras"
-    },
-    {
-      dia: "5º Dia: Extrair o melhor dos portais abertos no próximo ano",
-      titulo: "Como aproveitar o salto de consciência de 2027 para manifestar saúde, amor e prosperidade"
-    }
-  ];
-
   return (
-    <section className="py-20 bg-brand-light text-brand-dark">
-      <div className="container mx-auto px-4 max-w-5xl">
-        <h2 className="text-4xl md:text-5xl font-bold mb-16 text-center text-brand-violet">
-          Como será a Semana da Nova Consciência?
-        </h2>
+    <section id="programacao" className="relative scroll-mt-28 overflow-hidden bg-brand-light py-24 text-brand-ink md:scroll-mt-32">
+      <div
+        className="absolute inset-x-0 top-0 h-64 bg-gradient-to-b from-brand-night/10 to-transparent"
+        aria-hidden="true"
+      />
 
-        <div className="space-y-6">
+      <div className="container relative z-10 mx-auto px-4">
+        <div className="mx-auto mb-16 max-w-3xl text-center">
+          <span className="chip">Os 5 dias</span>
+          <h2 className="mt-5 text-3xl font-extrabold leading-tight text-brand-night sm:text-4xl lg:text-5xl">
+            Como será a Semana da Nova Consciência?
+          </h2>
+          <p className="mt-4 text-lg text-brand-night/70">
+            Cinco encontros ao vivo, cada um abrindo uma nova camada da sua consciência.
+          </p>
+        </div>
+
+        <div className="space-y-8">
           {dias.map((item, idx) => (
-            <motion.div 
-              key={idx}
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: idx * 0.1 }}
-              className="bg-white rounded-2xl p-6 md:p-8 shadow-xl flex flex-col md:flex-row gap-6 items-center border-l-4 border-brand-gold"
+            <motion.article
+              key={item.dia}
+              initial={{ opacity: 0, y: 28 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ delay: idx * 0.06 }}
+              className="card-cosmic cosmic grid items-stretch overflow-hidden md:grid-cols-[0.85fr_1.15fr]"
             >
-              <div className="flex-shrink-0 w-24 h-24 rounded-full bg-brand-violet/10 flex items-center justify-center border-2 border-brand-violet/20">
-                <span className="text-3xl font-bold text-brand-violet">{idx + 1}</span>
+              {/* Imagem condizente com o tema do dia, tratada na identidade cósmica */}
+              <div className={`relative min-h-[220px] md:min-h-[260px] ${idx % 2 === 1 ? 'md:order-2' : ''}`}>
+                <img
+                  src={item.img}
+                  alt={item.alt}
+                  loading="lazy"
+                  className="absolute inset-0 h-full w-full object-cover"
+                />
+                <div
+                  className="absolute inset-0 bg-gradient-to-t from-brand-night via-brand-night/50 to-transparent md:bg-gradient-to-r"
+                  aria-hidden="true"
+                />
+                <div className="absolute inset-0 bg-brand-blue/30 mix-blend-color" aria-hidden="true" />
+                <div className="stars absolute inset-0 opacity-30" aria-hidden="true" />
               </div>
-              <div>
-                <h3 className="text-xl md:text-2xl font-bold text-brand-violet mb-2">{item.dia}</h3>
-                <p className="text-lg text-gray-700 font-medium">{item.titulo}</p>
+
+              <div className="relative flex flex-col justify-center gap-3 p-7 sm:p-9">
+                <div className="flex flex-wrap items-center gap-3">
+                  <span className="text-4xl font-black leading-none text-gold-gradient sm:text-5xl">
+                    DIA {item.dia}
+                  </span>
+                  <span className="rounded-full border border-brand-gold/40 bg-brand-gold/10 px-3 py-1 text-[11px] font-bold uppercase tracking-[0.18em] text-brand-gold">
+                    {item.verbo}
+                  </span>
+                </div>
+
+                <h3 className="text-xl font-extrabold text-white sm:text-2xl">{item.tema}</h3>
+                <p className="text-base leading-relaxed text-brand-muted">{item.titulo}</p>
+
+                <div
+                  className="mt-2 h-px w-24 bg-gradient-to-r from-brand-gold to-transparent"
+                  aria-hidden="true"
+                />
               </div>
-            </motion.div>
+            </motion.article>
           ))}
+        </div>
+
+        <div className="mt-14 text-center">
+          <a href="#ingressos" className="btn-gold">
+            Garantir minha vaga nos 5 dias
+          </a>
         </div>
       </div>
     </section>

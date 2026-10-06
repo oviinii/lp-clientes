@@ -13,3 +13,8 @@ local.db
 .env
 .env.local
 .env*.local
+
+# Arquivos-fonte de referência (pesados) — mantidos localmente, nunca versionados
+*.CR2
+imagens-referencia/
+Manual de marca.pdf
