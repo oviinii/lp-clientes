@@ -53,22 +53,25 @@ const dias = [
 
 export function Programacao() {
   return (
-    <section id="programacao" className="relative scroll-mt-28 overflow-hidden bg-brand-light py-24 text-brand-ink md:scroll-mt-32">
+    <section id="programacao" className="paper relative scroll-mt-28 overflow-hidden py-24 text-brand-ink md:scroll-mt-32">
       <div
         className="absolute inset-x-0 top-0 h-64 bg-gradient-to-b from-brand-night/10 to-transparent"
         aria-hidden="true"
       />
 
       <div className="container relative z-10 mx-auto px-4">
-        <div className="mx-auto mb-16 max-w-3xl text-center">
-          <span className="chip">Os 5 dias</span>
-          <h2 className="mt-5 text-3xl font-extrabold leading-tight text-brand-night sm:text-4xl lg:text-5xl">
-            Como será a Semana da Nova Consciência?
-          </h2>
-          <p className="mt-4 text-lg text-brand-night/70">
+        <div className="grid gap-6 lg:grid-cols-12 lg:items-end">
+          <div className="lg:col-span-7">
+            <span className="chip chip-dark">Os 5 dias</span>
+            <h2 className="mt-6 text-[1.9rem] leading-tight text-brand-night sm:text-4xl lg:text-5xl">
+              Como será a Semana da Nova Consciência?
+            </h2>
+          </div>
+          <p className="text-base leading-relaxed text-brand-night/70 lg:col-span-5 lg:pb-2 lg:text-lg">
             Cinco encontros ao vivo, cada um abrindo uma nova camada da sua consciência.
           </p>
         </div>
+        <div className="hairline mb-12 mt-10 lg:mt-12" aria-hidden="true" />
 
         <div className="space-y-8">
           {dias.map((item, idx) => (
@@ -101,7 +104,7 @@ export function Programacao() {
                   <span className="text-4xl font-black leading-none text-gold-gradient sm:text-5xl">
                     DIA {item.dia}
                   </span>
-                  <span className="rounded-full border border-brand-gold/40 bg-brand-gold/10 px-3 py-1 text-[11px] font-bold uppercase tracking-[0.18em] text-brand-gold">
+                  <span className="chip">
                     {item.verbo}
                   </span>
                 </div>

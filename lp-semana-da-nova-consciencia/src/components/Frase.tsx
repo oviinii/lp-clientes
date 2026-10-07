@@ -20,9 +20,10 @@ export function Frase() {
     <section className="cosmic relative flex items-center justify-center overflow-hidden py-28 sm:py-36">
       <div className="absolute inset-0" aria-hidden="true">
         <div className="stars absolute inset-0 opacity-60" />
+        <div className="stars-lg absolute inset-0 opacity-50" />
         <div className="rings-gold absolute left-1/2 top-1/2 h-[130vh] w-[130vh] -translate-x-1/2 -translate-y-1/2 animate-glow-pulse" />
         <div className="rings absolute left-1/2 top-1/2 h-[95vh] w-[95vh] -translate-x-1/2 -translate-y-1/2" />
-        <div className="absolute left-1/2 top-1/2 h-[420px] w-[420px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-brand-gold/25 blur-[120px]" />
+        <div className="absolute left-1/2 top-1/2 h-[420px] w-[420px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-brand-gold/18 blur-[120px]" />
         <div className="absolute left-[12%] top-[22%] h-40 w-40 rounded-full bg-brand-blue/40 blur-[90px]" />
         <div className="absolute bottom-[12%] right-[10%] h-52 w-52 rounded-full bg-brand-blue/30 blur-[110px]" />
       </div>

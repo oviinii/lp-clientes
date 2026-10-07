@@ -294,3 +294,70 @@ npm run preview
 ```
 
 Deploy: Vercel, projeto com Root Directory = `lp-semana-da-nova-consciencia` (Framework Vite), conforme o padrão do repositório descrito no `README.md` da raiz.
+
+---
+
+## 8. Pacote de design aplicado (2ª rodada)
+
+Objetivo: aproximar a LP da linguagem visual dos criativos da campanha (tipografia, ritmo,
+disciplina de cor, clímax e acabamento).
+
+### 8.1 Tipografia de campanha
+- **Todo `h1`/`h2`/`h3` passa a usar o tratamento dos criativos**: Montserrat **Black (900)**, CAIXA ALTA, tracking `-0.015em`, entrelinha `1.04`. Isso foi centralizado em `src/index.css` (`@layer base`), não repetido componente por componente — para escapar do tratamento, basta a classe `no-display` (ou `font-serif`).
+- **Exceções preservadas**: Egrégora e Frase continuam em Playfair itálico (os dois momentos "acolhedores"), e o subtítulo do hero segue serifado.
+- **Kickers** deixaram de ser pílula de SaaS e viraram etiqueta editorial: caixa alta, `tracking 0.26em`, com o ornamento **✦** aplicado por CSS (`::before`) em todas as seções.
+- Navegação (header e footer) alinhada ao mesmo sistema: 11px, caixa alta, tracking largo.
+
+### 8.2 Ritmo e assimetria
+- **Cabeçalhos assimétricos** em grid de 12 colunas (título em 7–8 colunas, apoio em 4–5 alinhado à base) nas seções Pilares, Depoimentos, Programação e FAQ — antes todas eram centralizadas.
+- **FAQ virou duas colunas**: título e CTA fixos (`sticky`) à esquerda, acordeão à direita.
+- **Três níveis de respiro** em vez de `py-24` em tudo: compacto (`py-16`–`py-20`) / padrão (`py-20`–`py-24`) / clímax (`py-28`–`py-40` no hero e na oferta).
+- **Filetes dourados** (`.hairline`, degradê que some nas pontas) como separadores de seção, no lugar de bordas brancas secas.
+
+### 8.3 Disciplina do amarelo
+- Regra: **1 acento por viewport** (CTA, palavra-chave ou marcador de etapa).
+- FAQ e Palestrantes ficaram quase monocromáticos (títulos brancos, bordas neutras, chevron que só fica dourado quando aberto).
+- **Correção de contraste (bug real):** o kicker dourado (`#f3b100`) sobre fundo claro tinha contraste de **~1,7:1** — praticamente ilegível. Criado o token `brand.amber` (`#8a6100`) e a classe `.chip-dark`, aplicada em Programação, Palestrantes e Apoiadores.
+- Fundo claro passou de branco-azulado (`#f4f6fb`) para **off-white quente** (`#f7f4ee`), com aura dourada (classe `.paper`) — a página inteira agora vive no mesmo universo do navy + dourado.
+
+### 8.4 Oferta como clímax
+- A seção de ingressos saiu do fundo claro e virou **full-bleed navy com portal dourado**, duas camadas de estrelas e halo pulsante.
+- **Card Promocional** claro (entrada) com selo **"50% OFF" inclinado**; **card Comunidade Nova Era** escuro com **aro dourado** (`shadow-vip`), fita de "+90%" e **CTA com brilho**.
+- Preços em corpo display (até `text-7xl`), com riscado e badges de lote/vagas.
+- A seção **Frase teve o brilho reduzido** de propósito, para que o clímax visual seja a oferta — a intensidade agora cresce ao longo da página.
+
+### 8.5 Acabamento
+- **`.btn-shine`**: a animação de brilho já existia no CSS desde a 1ª rodada e **não era usada em lugar nenhum** — agora varre os dois CTAs principais (hero e oferta).
+- **Cards** com hairline dourada no topo (sumindo nas pontas) + brilho interno.
+- **Checkbox dourado** com check grosso, igual ao criativo principal do evento (aplicado nas listas dos dois ingressos).
+- **Glifos da marca** (`☼ ◈ ✦`) substituíram ícones genéricos do lucide nos pilares.
+- **Estrelas:** nova camada `.stars-lg` (estrelas grandes com glow, escala diferente) para disfarçar a repetição do tile de 360×260px.
+
+### 8.6 Textos de apoio escritos por nós (revisar)
+Duas linhas novas foram criadas para sustentar os cabeçalhos assimétricos — o restante do conteúdo segue o briefing:
+- Programação: *"Cinco encontros ao vivo, cada um abrindo uma nova camada da sua consciência."*
+- Depoimentos: *"Mensagens reais de quem já viveu a experiência com a nossa equipe."*
+- Também foi restaurada no FAQ a frase do briefing *"Se não encontrar sua resposta, fale com a equipe pelo WhatsApp ou e-mail."*, que não estava na página.
+
+### 8.7 Verificação desta rodada
+| Verificação | Resultado |
+|---|---|
+| `tsc --noEmit` | **sem erros** |
+| `vite build` | **sucesso** — CSS 36,6 kB (7,5 kB gzip) · JS 412 kB (127 kB gzip) |
+| Regra tipográfica compilada | confirmada no CSS final: `h1:not(.font-serif):not(.no-display),...{text-transform:uppercase;font-weight:900;line-height:1.04}` |
+| Cards de depoimento | **8 cards** com altura idêntica (`h-[24rem]`) e 8 avatares com inicial |
+| Oferta | selo `50% OFF`, `card-vip`, **2 CTAs com brilho**, 20 checkboxes dourados |
+| Fundo claro | 4 seções com `.paper`, 3 kickers com `.chip-dark` |
+| Glifos dos pilares | 3 (`☼ ◈ ✦`) |
+| FAQ | grid de 2 colunas com coluna fixa |
+| Âncoras / imagens | **nenhuma quebrada** (17 imagens) |
+| Lixo no DOM | nenhum `undefined` |
+
+> **Limitação (repete-se):** não foi possível gerar screenshots neste ambiente (o Chrome headless trava ao carregar CSS/imagens via `file://` no sandbox). A validação desta rodada foi estrutural (DOM + CSS compilado) e a conferência **visual** precisa ser feita com `npm run dev`, olhando desktop (1440) e mobile (390). Se algo no novo tratamento tipográfico desagradar, o ajuste é em **um só lugar**: a regra de `h1/h2/h3` no `src/index.css` — e o commit anterior é o ponto de retorno.
+
+### 8.8 Ideias do pacote que ficaram para depois
+- Numeração editorial das seções (`01 · A experiência`…) — não entrou no pacote escolhido.
+- Sistema de `<Portal>` com a silhueta da marca percorrendo a página.
+- Recorte das artes dos criativos "DIA 1–5" para as capas da programação.
+- Movimento com scroll ligado (parallax dos anéis, títulos revelando por linha, números contando).
+- Ajustes finos de mobile (quebra do título no hero em 320px; revisão do clamp dos depoimentos).

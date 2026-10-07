@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight, ChevronLeft, ChevronRight, Quote } from 'lucide-react';
+import { ArrowRight, BadgeCheck, ChevronLeft, ChevronRight, Quote } from 'lucide-react';
 
 /**
  * Sessão 02 do briefing — depoimentos.
@@ -16,6 +16,9 @@ import { ArrowRight, ChevronLeft, ChevronRight, Quote } from 'lucide-react';
  * que foi escrito (sem correções) e apenas nome + inicial (sem telefone, e-mail ou link).
  * Os arquivos originais foram movidos de `public/` para `depoimentos-originais/` para não
  * serem servidos no deploy.
+ *
+ * Design: balão de conversa redesenhado (avatar com inicial + selo), altura fixa idêntica
+ * e o amarelo reservado ao ornamento, ao selo e ao indicador ativo.
  */
 const depoimentos = [
   {
@@ -94,18 +97,26 @@ export function Depoimentos() {
   const prev = () => setPage((atual) => (atual - 1 + totalPages) % totalPages);
 
   return (
-    <section id="depoimentos" className="cosmic relative scroll-mt-28 overflow-hidden py-24 md:scroll-mt-32">
+    <section id="depoimentos" className="cosmic relative scroll-mt-28 overflow-hidden py-20 sm:py-24 md:scroll-mt-32">
       <div className="stars absolute inset-0 opacity-40" aria-hidden="true" />
       <div
         className="absolute left-1/2 top-0 h-96 w-full max-w-3xl -translate-x-1/2 rounded-full bg-brand-gold/15 blur-[120px]"
         aria-hidden="true"
       />
 
-      <div className="container relative z-10 mx-auto px-4 text-center">
-        <span className="chip">Provas de transformação</span>
-        <h2 className="mx-auto mt-5 max-w-4xl text-3xl font-extrabold leading-tight text-white sm:text-4xl lg:text-5xl">
-          Milhares de vidas já foram transformadas unindo ciência, espiritualidade e evolução.
-        </h2>
+      <div className="container relative z-10 mx-auto px-4">
+        {/* Cabeçalho assimétrico */}
+        <div className="grid gap-6 lg:grid-cols-12 lg:items-end">
+          <div className="lg:col-span-8">
+            <span className="chip">Provas de transformação</span>
+            <h2 className="mt-6 text-[1.8rem] text-white sm:text-3xl lg:text-[2.6rem]">
+              Milhares de vidas já foram transformadas unindo ciência, espiritualidade e evolução.
+            </h2>
+          </div>
+          <p className="text-sm leading-relaxed text-brand-muted lg:col-span-4 lg:pb-2">
+            Mensagens reais de quem já viveu a experiência com a nossa equipe.
+          </p>
+        </div>
 
         <div className="relative mx-auto mt-14 max-w-6xl">
           <div className="overflow-hidden">
@@ -124,18 +135,26 @@ export function Depoimentos() {
               {depoimentos.map((d, idx) => (
                 <div key={d.autor + idx} className="shrink-0 px-2 sm:px-3" style={{ width: `${100 / perView}%` }}>
                   {/* Altura fixa igual para todos os cards: o carrossel nunca muda de tamanho */}
-                  <article className="card-cosmic cosmic flex h-[22rem] flex-col p-6 text-left sm:p-7">
-                    <Quote className="shrink-0 text-brand-gold" size={26} aria-hidden="true" />
+                  <article className="card-cosmic cosmic flex h-[25rem] flex-col p-6 sm:p-7">
+                    <Quote className="shrink-0 text-brand-gold/70" size={22} aria-hidden="true" />
 
-                    <p className="mt-4 flex-1 overflow-hidden whitespace-pre-line text-sm leading-relaxed text-brand-ice/90 line-clamp-[10] sm:line-clamp-[11]">
+                    <p className="mt-4 flex-1 overflow-hidden whitespace-pre-line text-sm leading-relaxed text-brand-ice/90 line-clamp-[9]">
                       {d.texto}
                     </p>
 
-                    <footer className="mt-5 shrink-0 border-t border-white/10 pt-4">
-                      <p className="text-base font-extrabold text-white">{d.autor}</p>
-                      <p className="mt-0.5 text-xs uppercase tracking-[0.14em] text-brand-muted">
-                        Participante do congresso
-                      </p>
+                    <footer className="mt-5 flex shrink-0 items-center gap-3 border-t border-white/10 pt-5">
+                      <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-brand-gold/40 bg-brand-gold/10 text-sm font-black uppercase text-brand-gold">
+                        {d.autor.charAt(0)}
+                      </span>
+                      <div className="min-w-0">
+                        <p className="flex items-center gap-1.5 text-sm font-bold text-white">
+                          {d.autor}
+                          <BadgeCheck size={14} className="shrink-0 text-brand-gold" aria-hidden="true" />
+                        </p>
+                        <p className="mt-0.5 text-[10px] font-bold uppercase tracking-[0.14em] text-brand-muted">
+                          Participante do congresso
+                        </p>
+                      </div>
                     </footer>
                   </article>
                 </div>
@@ -148,7 +167,7 @@ export function Depoimentos() {
               <button
                 onClick={prev}
                 aria-label="Depoimentos anteriores"
-                className="absolute left-1 top-1/2 z-20 -translate-y-1/2 rounded-full border border-brand-gold/30 bg-brand-night/80 p-3 text-brand-ice backdrop-blur transition-colors hover:bg-brand-gold hover:text-brand-night sm:left-2 lg:-left-16"
+                className="absolute left-1 top-1/2 z-20 -translate-y-1/2 rounded-full border border-white/15 bg-brand-night/80 p-3 text-brand-ice backdrop-blur transition-colors hover:border-brand-gold hover:text-brand-gold sm:left-2 lg:-left-16"
               >
                 <ChevronLeft size={22} />
               </button>
@@ -156,7 +175,7 @@ export function Depoimentos() {
               <button
                 onClick={next}
                 aria-label="Próximos depoimentos"
-                className="absolute right-1 top-1/2 z-20 -translate-y-1/2 rounded-full border border-brand-gold/30 bg-brand-night/80 p-3 text-brand-ice backdrop-blur transition-colors hover:bg-brand-gold hover:text-brand-night sm:right-2 lg:-right-16"
+                className="absolute right-1 top-1/2 z-20 -translate-y-1/2 rounded-full border border-white/15 bg-brand-night/80 p-3 text-brand-ice backdrop-blur transition-colors hover:border-brand-gold hover:text-brand-gold sm:right-2 lg:-right-16"
               >
                 <ChevronRight size={22} />
               </button>
@@ -174,27 +193,31 @@ export function Depoimentos() {
                   aria-label={`Ir para a página ${i + 1} de depoimentos`}
                   aria-current={i === page}
                   className={`h-2.5 rounded-full transition-all ${
-                    i === page ? 'w-8 bg-brand-gold' : 'w-2.5 bg-white/25 hover:bg-white/50'
+                    i === page ? 'w-8 bg-brand-gold' : 'w-2.5 bg-white/20 hover:bg-white/40'
                   }`}
                 />
               ))}
             </div>
 
-            <p className="mt-4 text-xs uppercase tracking-[0.2em] text-brand-muted lg:hidden">
+            <p className="mt-4 text-center text-[10px] font-bold uppercase tracking-[0.2em] text-brand-muted lg:hidden">
               Arraste para o lado
             </p>
           </>
         )}
 
-        <p className="mx-auto mt-10 max-w-3xl text-sm text-brand-muted">
+        <div className="hairline mx-auto mt-14 max-w-2xl" aria-hidden="true" />
+
+        <p className="mx-auto mt-8 max-w-3xl text-center text-sm text-brand-muted">
           Mensagens enviadas por participantes do Congresso Multidimensional, realizado pela mesma equipe.
           Textos transcritos exatamente como foram escritos; telefones e dados pessoais foram removidos.
         </p>
 
-        <a href="#ingressos" className="btn-gold mt-10">
-          Quero minha vaga
-          <ArrowRight size={18} />
-        </a>
+        <div className="mt-10 text-center">
+          <a href="#ingressos" className="btn-gold">
+            Quero minha vaga
+            <ArrowRight size={18} />
+          </a>
+        </div>
       </div>
     </section>
   );

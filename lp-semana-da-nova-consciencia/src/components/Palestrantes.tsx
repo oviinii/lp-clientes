@@ -31,10 +31,10 @@ const palestrantes = [
 
 export function Palestrantes() {
   return (
-    <section id="palestrantes" className="relative scroll-mt-28 overflow-hidden bg-brand-light py-24 text-brand-ink md:scroll-mt-32">
+    <section id="palestrantes" className="paper relative scroll-mt-28 overflow-hidden py-20 sm:py-24 text-brand-ink md:scroll-mt-32">
       <div className="container relative z-10 mx-auto max-w-6xl px-4">
         <div className="mx-auto mb-16 max-w-3xl text-center">
-          <span className="chip">Quem estará com você</span>
+          <span className="chip chip-dark">Quem estará com você</span>
           <h2 className="mt-5 text-3xl font-extrabold leading-tight text-brand-night sm:text-4xl lg:text-5xl">
             Palestrantes confirmados
           </h2>
@@ -66,12 +66,12 @@ export function Palestrantes() {
                   aria-hidden="true"
                 />
                 <div className="absolute inset-0 bg-brand-blue/30 mix-blend-color" aria-hidden="true" />
-                <span className="absolute left-4 top-4 rounded-full border border-brand-gold/40 bg-brand-night/80 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.18em] text-brand-gold backdrop-blur">
+                <span className="absolute left-4 top-4 rounded-full border border-white/20 bg-brand-night/80 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.18em] text-white/75 backdrop-blur">
                   Em breve · nome oficial
                 </span>
               </div>
 
-              <div className="border-t-2 border-brand-gold/60 p-6">
+              <div className="border-t border-white/10 p-6">
                 <h3 className="text-xl font-extrabold text-white">{palestrante.nome}</h3>
                 <h4 className="mt-2 font-semibold text-brand-gold">{palestrante.tema}</h4>
                 <p className="mt-3 text-sm leading-relaxed text-brand-muted">{palestrante.curriculo}</p>

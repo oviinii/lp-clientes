@@ -33,7 +33,7 @@ export function Footer() {
             <ul className="space-y-3">
               {links.map((link) => (
                 <li key={link.href}>
-                  <a href={link.href} className="text-brand-muted transition-colors hover:text-brand-gold">
+                  <a href={link.href} className="text-[11px] font-bold uppercase tracking-[0.14em] text-brand-muted transition-colors hover:text-brand-gold">
                     {link.label}
                   </a>
                 </li>
@@ -73,7 +73,8 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-white/10 pt-8 md:flex-row">
+        <div className="hairline mt-12" aria-hidden="true" />
+        <div className="mt-8 flex flex-col items-center justify-between gap-4 md:flex-row">
           <p className="text-sm text-brand-muted">
             © 2026 Semana da Nova Consciência. Todos os direitos reservados.
           </p>

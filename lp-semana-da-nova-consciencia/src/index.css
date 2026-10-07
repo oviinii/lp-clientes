@@ -26,38 +26,102 @@
     background: #f3b100;
     color: #03062f;
   }
+
+  /* ------------------------------------------------------------------
+     Sistema tipográfico da campanha.
+     Os criativos usam sans geométrica em CAIXA ALTA com tracking apertado.
+     Todo h1/h2/h3 recebe esse tratamento automaticamente — para escapar,
+     use a classe `no-display` (ou `font-serif` nos momentos acolhedores).
+     ------------------------------------------------------------------ */
+  h1,
+  h2,
+  h3 {
+    @apply text-balance;
+  }
+
+  h1:not(.font-serif):not(.no-display),
+  h2:not(.font-serif):not(.no-display),
+  h3:not(.font-serif):not(.no-display) {
+    @apply font-sans font-black uppercase leading-[1.04] tracking-[-0.015em];
+  }
 }
 
 @layer components {
-  /* Botão principal — amarelo da campanha sobre navy */
+  /* ------------------------------------------------------------------
+     Botões
+     ------------------------------------------------------------------ */
   .btn-gold {
-    @apply inline-flex items-center justify-center gap-2 rounded-full bg-brand-gold px-8 py-4
-      text-base font-bold text-brand-night shadow-gold transition-all duration-300
-      hover:scale-[1.03] hover:bg-brand-goldDeep
+    @apply relative inline-flex items-center justify-center gap-2 overflow-hidden rounded-full
+      bg-brand-gold px-8 py-4 text-base font-black uppercase tracking-[0.06em] text-brand-night
+      shadow-gold transition-all duration-300 hover:scale-[1.03] hover:bg-brand-goldDeep
       focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-gold/60 focus-visible:ring-offset-2 focus-visible:ring-offset-brand-night;
   }
 
-  /* Botão secundário — contorno claro sobre navy */
+  /* Brilho varrendo o botão — usar apenas nos CTAs principais (hero e oferta) */
+  .btn-shine::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: linear-gradient(
+      100deg,
+      transparent 20%,
+      rgba(255, 255, 255, 0.5) 42%,
+      transparent 64%
+    );
+    background-size: 220% 100%;
+    animation: shine 3.5s linear infinite;
+    pointer-events: none;
+  }
+
   .btn-ghost {
     @apply inline-flex items-center justify-center gap-2 rounded-full border border-white/25 px-8 py-4
-      text-base font-semibold text-brand-ice transition-colors duration-300
+      text-sm font-bold uppercase tracking-[0.14em] text-brand-ice transition-colors duration-300
       hover:border-brand-gold hover:text-brand-gold;
   }
 
-  /* Etiqueta/eyebrow */
+  /* ------------------------------------------------------------------
+     Kicker (antigo "chip"): viramos etiqueta editorial — sem pílula,
+     caixa alta, com o ornamento da marca. Usar `.chip-dark` sobre fundo claro.
+     ------------------------------------------------------------------ */
   .chip {
-    @apply inline-flex items-center gap-2 rounded-full border border-brand-gold/40 bg-brand-gold/10
-      px-4 py-1.5 text-[11px] font-bold uppercase tracking-[0.18em] text-brand-gold;
+    @apply inline-flex items-center text-[11px] font-bold uppercase tracking-[0.26em] text-brand-gold;
   }
 
-  /* Card escuro sobre fundo escuro */
-  .card-dark {
-    @apply rounded-3xl border border-white/10 bg-brand-deep/80 backdrop-blur-sm;
+  .chip::before {
+    content: '✦';
+    margin-right: 0.6rem;
+    font-size: 0.85em;
+    line-height: 1;
   }
 
-  /* Card escuro sobre fundo claro (contraste exigido no briefing) */
+  .chip-dark {
+    @apply text-brand-amber;
+  }
+
+  /* ------------------------------------------------------------------
+     Cards
+     ------------------------------------------------------------------ */
   .card-cosmic {
-    @apply relative overflow-hidden rounded-3xl border border-brand-gold/25 bg-brand-night text-brand-ice shadow-card;
+    @apply relative overflow-hidden rounded-3xl border border-white/10 bg-brand-night text-brand-ice shadow-card-up;
+  }
+
+  /* Hairline dourada no topo, sumindo nas pontas (acabamento) */
+  .card-cosmic::before {
+    content: '';
+    position: absolute;
+    inset: 0 0 auto 0;
+    height: 1px;
+    background-image: linear-gradient(90deg, transparent, rgba(243, 177, 0, 0.75), transparent);
+    z-index: 2;
+  }
+
+  .card-vip {
+    @apply relative overflow-hidden rounded-3xl border-2 border-brand-gold/60 bg-brand-deep/95 text-brand-ice shadow-vip;
+  }
+
+  /* Item de lista com "checkbox" dourado — igual ao criativo principal do evento */
+  .check-box {
+    @apply mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-[5px] border-2;
   }
 }
 
@@ -69,6 +133,17 @@
     -webkit-text-fill-color: transparent;
   }
 
+  /* Filete dourado que some nas pontas */
+  .hairline {
+    height: 1px;
+    background-image: linear-gradient(90deg, transparent, rgba(243, 177, 0, 0.6), transparent);
+  }
+
+  .hairline-soft {
+    height: 1px;
+    background-image: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.18), transparent);
+  }
+
   /* Fundo cósmico: navy + nebulosas azul/amarela (identidade dos criativos) */
   .cosmic {
     background-color: #03062f;
@@ -78,7 +153,15 @@
       radial-gradient(circle at 50% 108%, rgba(243, 177, 0, 0.14), transparent 55%);
   }
 
-  /* Campo de estrelas (usar em elemento com position absolute/relative e inset-0) */
+  /* Fundo claro quente + aura dourada suave */
+  .paper {
+    background-color: #f7f4ee;
+    background-image:
+      radial-gradient(circle at 85% 0%, rgba(243, 177, 0, 0.12), transparent 45%),
+      radial-gradient(circle at 8% 100%, rgba(16, 40, 160, 0.06), transparent 50%);
+  }
+
+  /* Campo de estrelas — duas camadas (miúdas + grandes) para não denunciar o tile */
   .stars {
     background-image:
       radial-gradient(1.6px 1.6px at 22px 34px, rgba(255, 255, 255, 0.9) 50%, transparent 51%),
@@ -88,6 +171,17 @@
       radial-gradient(1.4px 1.4px at 260px 58px, rgba(255, 255, 255, 0.5) 50%, transparent 51%),
       radial-gradient(1px 1px at 320px 150px, rgba(255, 255, 255, 0.6) 50%, transparent 51%);
     background-size: 360px 260px;
+    background-repeat: repeat;
+  }
+
+  .stars-lg {
+    background-image:
+      radial-gradient(2.6px 2.6px at 120px 90px, rgba(243, 177, 0, 0.9) 40%, transparent 62%),
+      radial-gradient(2.2px 2.2px at 470px 250px, rgba(255, 255, 255, 0.85) 40%, transparent 62%),
+      radial-gradient(1.9px 1.9px at 300px 430px, rgba(243, 177, 0, 0.7) 40%, transparent 62%),
+      radial-gradient(2.4px 2.4px at 640px 520px, rgba(255, 255, 255, 0.7) 40%, transparent 62%),
+      radial-gradient(1.8px 1.8px at 760px 160px, rgba(243, 177, 0, 0.6) 40%, transparent 62%);
+    background-size: 820px 680px;
     background-repeat: repeat;
   }
 
@@ -102,7 +196,7 @@
     mask-image: radial-gradient(circle at 50% 50%, #000 18%, transparent 72%);
   }
 
-  /* Anéis dourados, mais quentes — usado em portais/halos */
+  /* Anéis dourados, mais quentes — portal/halo */
   .rings-gold {
     background-image: repeating-radial-gradient(
       circle at 50% 50%,
@@ -113,23 +207,17 @@
     mask-image: radial-gradient(circle at 50% 50%, #000 25%, transparent 70%);
   }
 
-  /* Brilho varrendo o botão (efeito de campanha) */
-  .shine {
-    background-image: linear-gradient(
-      100deg,
-      transparent 20%,
-      rgba(255, 255, 255, 0.45) 42%,
-      transparent 64%
-    );
-    background-size: 220% 100%;
-  }
-
   .glow-gold {
     box-shadow: 0 0 90px rgba(243, 177, 0, 0.28);
   }
+
+  /* Ornamento da marca */
+  .glyph {
+    @apply text-brand-gold;
+  }
 }
 
-/* Partículas flutuantes da seção "Frase" (identidade lúdica) */
+/* Partículas flutuantes (seção lúdica) */
 @keyframes particleRise {
   0% {
     transform: translate3d(0, 20px, 0) scale(0.6);
@@ -154,7 +242,7 @@
 
 @media (prefers-reduced-motion: reduce) {
   .particle,
-  .stars,
+  .btn-shine::after,
   .animate-floaty,
   .animate-twinkle,
   .animate-glow-pulse,

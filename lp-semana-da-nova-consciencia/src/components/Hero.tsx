@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { ArrowRight, CalendarDays, Clock3, PlayCircle, Sparkles } from 'lucide-react';
+import { ArrowRight, CalendarDays, Clock3, PlayCircle } from 'lucide-react';
 
 const provas = [
   { valor: '5 dias', rotulo: 'de imersão ao vivo' },
@@ -10,8 +10,9 @@ const provas = [
 export function Hero() {
   return (
     <section id="inicio" className="cosmic relative flex min-h-screen items-center overflow-hidden">
-      {/* Identidade do criativo principal: campo de estrelas + anéis de geometria sagrada + halo dourado */}
+      {/* Identidade do criativo principal: duas camadas de estrelas + anéis + halo dourado */}
       <div className="stars absolute inset-0 animate-twinkle opacity-60" aria-hidden="true" />
+      <div className="stars-lg absolute inset-0 opacity-70" aria-hidden="true" />
       <div className="rings absolute -right-1/4 top-1/2 h-[140vh] w-[140vh] -translate-y-1/2" aria-hidden="true" />
       <div
         className="absolute -left-40 top-10 h-[520px] w-[520px] rounded-full bg-brand-blue/25 blur-[130px]"
@@ -22,7 +23,7 @@ export function Hero() {
         aria-hidden="true"
       />
 
-      <div className="container relative z-10 mx-auto grid items-center gap-14 px-4 pb-20 pt-36 lg:grid-cols-[1.05fr_0.95fr] lg:gap-10 lg:pt-40">
+      <div className="container relative z-10 mx-auto grid items-center gap-14 px-4 pb-24 pt-36 lg:grid-cols-[1.05fr_0.95fr] lg:gap-10 lg:pt-40">
         {/* Coluna de texto — alinhada à esquerda conforme briefing */}
         <div className="text-left">
           <motion.span
@@ -31,7 +32,6 @@ export function Hero() {
             transition={{ duration: 0.6 }}
             className="chip"
           >
-            <Sparkles size={14} />
             Prepare-se para 2027
           </motion.span>
 
@@ -39,7 +39,7 @@ export function Hero() {
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.1 }}
-            className="mt-6 text-[2.6rem] font-extrabold leading-[1.05] tracking-tight text-white sm:text-5xl lg:text-6xl xl:text-7xl"
+            className="mt-6 text-[2.5rem] text-white sm:text-5xl lg:text-6xl xl:text-[4.6rem]"
           >
             Semana da
             <br />
@@ -50,7 +50,7 @@ export function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.2 }}
-            className="mt-5 font-serif text-xl italic text-brand-ice/90 sm:text-2xl"
+            className="mt-6 font-serif text-lg italic text-brand-ice/90 sm:text-xl"
           >
             O ano do salto de consciência
           </motion.p>
@@ -61,12 +61,12 @@ export function Hero() {
             transition={{ duration: 0.7, delay: 0.28 }}
             className="mt-7 flex flex-wrap items-center gap-3"
           >
-            <span className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-2 text-sm font-semibold text-brand-ice">
-              <CalendarDays size={16} className="text-brand-gold" />
+            <span className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-2 text-xs font-bold uppercase tracking-[0.12em] text-brand-ice">
+              <CalendarDays size={15} className="text-brand-gold" />
               De 2 a 6 de dezembro
             </span>
-            <span className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-2 text-sm font-semibold text-brand-ice">
-              <PlayCircle size={16} className="text-brand-gold" />
+            <span className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-2 text-xs font-bold uppercase tracking-[0.12em] text-brand-ice">
+              <PlayCircle size={15} className="text-brand-gold" />
               Evento 100% online
             </span>
           </motion.div>
@@ -75,7 +75,7 @@ export function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.36 }}
-            className="mt-6 max-w-xl text-base leading-relaxed text-brand-muted sm:text-lg"
+            className="mt-7 max-w-xl text-base leading-relaxed text-brand-muted sm:text-lg"
           >
             Mais de 25 palestras, entrevistas e vivências para romper padrões antigos e manifestar uma nova
             realidade em 2027.
@@ -87,7 +87,7 @@ export function Hero() {
             transition={{ duration: 0.7, delay: 0.44 }}
             className="mt-9 flex flex-col gap-4 sm:flex-row sm:items-center"
           >
-            <a href="#ingressos" className="btn-gold">
+            <a href="#ingressos" className="btn-gold btn-shine">
               Garantir minha vaga
               <ArrowRight size={18} />
             </a>
@@ -105,8 +105,10 @@ export function Hero() {
           >
             {provas.map((p) => (
               <div key={p.rotulo}>
-                <dt className="text-2xl font-extrabold text-brand-gold sm:text-3xl">{p.valor}</dt>
-                <dd className="mt-1 text-xs leading-snug text-brand-muted sm:text-sm">{p.rotulo}</dd>
+                <dt className="text-3xl font-black text-brand-gold sm:text-4xl">{p.valor}</dt>
+                <dd className="mt-2 text-[10px] font-bold uppercase leading-snug tracking-[0.16em] text-brand-muted">
+                  {p.rotulo}
+                </dd>
               </div>
             ))}
           </motion.dl>

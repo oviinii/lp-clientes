@@ -30,7 +30,7 @@ export function Comparacao() {
 
       <div className="container relative z-10 mx-auto max-w-4xl px-4 text-center">
         <span className="chip">O salto</span>
-        <h2 className="mx-auto mt-5 max-w-3xl text-2xl font-extrabold leading-tight text-white sm:text-3xl lg:text-4xl">
+        <h2 className="mx-auto mt-6 max-w-3xl text-xl leading-tight text-white sm:text-2xl lg:text-3xl">
           O que você curar ainda em 2026 determinará a realidade que poderá viver em 2027.
         </h2>
 

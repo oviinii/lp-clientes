@@ -19,9 +19,10 @@ export default {
           blueSoft: '#203c65',// azul de brilho / nebulosa (criativos)
           gold: '#f3b100',    // amarelo da campanha (CTA, destaques)
           goldDeep: '#e0a818',// dourado do manual de marca
+          amber: '#8a6100',   // âmbar escuro — para TEXTO dourado sobre fundo claro (contraste)
           ice: '#e8ecf8',     // texto claro sobre navy
           muted: '#9aa4c8',   // texto secundário sobre navy
-          light: '#f4f6fb',   // fundo claro das seções de contraste
+          light: '#f7f4ee',   // fundo claro quente das seções de contraste
           ink: '#0b1030',     // texto escuro sobre fundo claro
         },
       },
@@ -33,6 +34,8 @@ export default {
         gold: '0 10px 40px rgba(243, 177, 0, 0.35)',
         glow: '0 0 90px rgba(243, 177, 0, 0.22)',
         card: '0 24px 60px -20px rgba(3, 6, 47, 0.55)',
+        'card-up': 'inset 0 1px 0 rgba(255, 255, 255, 0.05), 0 24px 60px -20px rgba(3, 6, 47, 0.55)',
+        vip: '0 0 0 1px rgba(243, 177, 0, 0.45), 0 30px 90px -30px rgba(243, 177, 0, 0.45)',
       },
       keyframes: {
         floaty: {

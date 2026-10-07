@@ -54,77 +54,83 @@ export function FAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   return (
-    <section id="faq" className="cosmic relative scroll-mt-28 overflow-hidden py-24 md:scroll-mt-32">
+    <section id="faq" className="cosmic relative scroll-mt-28 py-20 sm:py-24 md:scroll-mt-32">
       <div className="stars absolute inset-0 opacity-35" aria-hidden="true" />
 
-      <div className="container relative z-10 mx-auto max-w-4xl px-4">
-        <div className="mb-14 text-center">
-          <span className="chip">Ainda tem dúvidas?</span>
-          <h2 className="mt-5 text-3xl font-extrabold text-white sm:text-4xl lg:text-5xl">
-            Dúvidas frequentes
-          </h2>
-        </div>
-
-        <div className="space-y-4">
-          {faqs.map((faq, idx) => (
-            <div
-              key={faq.q}
-              className="overflow-hidden rounded-2xl border border-white/10 bg-white/5 transition-colors hover:bg-white/10"
-            >
-              <button
-                onClick={() => setOpenIndex(openIndex === idx ? null : idx)}
-                aria-expanded={openIndex === idx}
-                className="flex w-full items-center justify-between gap-4 p-6 text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-gold/60"
-              >
-                <span className="text-base font-semibold text-white sm:text-lg">{faq.q}</span>
-                <ChevronDown
-                  className={`shrink-0 text-brand-gold transition-transform duration-300 ${
-                    openIndex === idx ? 'rotate-180' : ''
-                  }`}
-                  size={24}
-                />
-              </button>
-
-              <AnimatePresence>
-                {openIndex === idx && (
-                  <motion.div
-                    initial={{ height: 0, opacity: 0 }}
-                    animate={{ height: 'auto', opacity: 1 }}
-                    exit={{ height: 0, opacity: 0 }}
-                    transition={{ duration: 0.3 }}
-                  >
-                    <div className="mt-2 border-t border-white/10 p-6 pt-4 leading-relaxed text-brand-muted">
-                      {faq.a}
-                    </div>
-                  </motion.div>
-                )}
-              </AnimatePresence>
+      <div className="container relative z-10 mx-auto px-4">
+        {/* Duas colunas: título fixo à esquerda, acordeão à direita */}
+        <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
+          <div className="lg:col-span-4">
+            <div className="lg:sticky lg:top-32">
+              <span className="chip">Ainda tem dúvidas?</span>
+              <h2 className="mt-6 text-3xl text-white sm:text-4xl">Dúvidas frequentes</h2>
+              <p className="mt-5 text-sm leading-relaxed text-brand-muted">
+                Se não encontrar sua resposta, fale com a equipe pelo WhatsApp ou e-mail.
+              </p>
+              <a href="#ingressos" className="btn-ghost mt-7">
+                <MessageCircle size={16} />
+                Falar com a equipe
+              </a>
+              <div className="hairline mt-8 hidden lg:block" aria-hidden="true" />
             </div>
-          ))}
-        </div>
+          </div>
 
-        <div className="mt-14 rounded-3xl border border-brand-gold/25 bg-brand-deep/70 p-8 text-center">
-          <h3 className="text-2xl font-extrabold text-brand-gold">Informações gerais</h3>
-          <p className="mt-4 text-brand-muted">
-            Reforçamos que o evento conta com uma carga extensa de conteúdo profundo, intervenções e
-            dinâmicas, para que você possa realmente se integrar ao grupo e ao trabalho dos Despertadores da
-            Nova Era.
-          </p>
-          <p className="mt-4 text-brand-muted">
-            É importante estar atento aos horários de entrada nas salas online para não perder conteúdo.
-          </p>
-          <p className="mt-4 font-semibold text-white">
-            Os valores de inscrição sofrerão alteração por lotes, sendo importante você efetuar sua compra o
-            quanto antes para garantir menores preços.
-          </p>
+          <div className="lg:col-span-8">
+            <div className="space-y-3">
+              {faqs.map((faq, idx) => (
+                <div
+                  key={faq.q}
+                  className="overflow-hidden rounded-2xl border border-white/10 bg-white/[0.03] transition-colors hover:bg-white/[0.06]"
+                >
+                  <button
+                    onClick={() => setOpenIndex(openIndex === idx ? null : idx)}
+                    aria-expanded={openIndex === idx}
+                    className="flex w-full items-center justify-between gap-4 p-6 text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-gold/60"
+                  >
+                    <span className="text-base font-semibold text-white">{faq.q}</span>
+                    <ChevronDown
+                      className={`shrink-0 transition-all duration-300 ${
+                        openIndex === idx ? 'rotate-180 text-brand-gold' : 'text-brand-muted'
+                      }`}
+                      size={22}
+                    />
+                  </button>
 
-          <a
-            href="#ingressos"
-            className="btn-ghost mt-8"
-          >
-            <MessageCircle size={18} />
-            Falar com a equipe e garantir minha vaga
-          </a>
+                  <AnimatePresence>
+                    {openIndex === idx && (
+                      <motion.div
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: 'auto', opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        transition={{ duration: 0.3 }}
+                      >
+                        <div className="border-t border-white/10 p-6 text-sm leading-relaxed text-brand-muted">
+                          {faq.a}
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
+              ))}
+            </div>
+
+            <div className="mt-12 rounded-3xl border border-white/10 bg-white/[0.03] p-8">
+              <h3 className="text-lg text-white sm:text-xl">Informações gerais</h3>
+              <div className="hairline mt-4" aria-hidden="true" />
+              <p className="mt-5 text-sm leading-relaxed text-brand-muted">
+                Reforçamos que o evento conta com uma carga extensa de conteúdo profundo, intervenções e
+                dinâmicas, para que você possa realmente se integrar ao grupo e ao trabalho dos Despertadores
+                da Nova Era.
+              </p>
+              <p className="mt-4 text-sm leading-relaxed text-brand-muted">
+                É importante estar atento aos horários de entrada nas salas online para não perder conteúdo.
+              </p>
+              <p className="mt-4 text-sm font-semibold text-white">
+                Os valores de inscrição sofrerão alteração por lotes, sendo importante você efetuar sua
+                compra o quanto antes para garantir menores preços.
+              </p>
+            </div>
+          </div>
         </div>
       </div>
     </section>

@@ -38,7 +38,7 @@ export function Egregora() {
             aprendizado, reflexão, conexão e transformação.
           </h2>
 
-          <p className="mt-8 text-sm font-bold uppercase tracking-[0.28em] text-brand-gold">
+          <p className="chip mt-8">
             Leandra Soares
           </p>
         </motion.div>

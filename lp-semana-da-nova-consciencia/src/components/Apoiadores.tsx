@@ -7,9 +7,9 @@ import { Handshake } from 'lucide-react';
  */
 export function Apoiadores() {
   return (
-    <section className="relative overflow-hidden bg-brand-light py-20 text-brand-ink">
+    <section className="paper relative overflow-hidden py-16 text-brand-ink sm:py-20">
       <div className="container relative z-10 mx-auto px-4 text-center">
-        <span className="chip">Parceiros</span>
+        <span className="chip chip-dark">Parceiros</span>
         <h2 className="mt-5 text-2xl font-extrabold text-brand-night sm:text-3xl">
           Conheça nossos apoiadores
         </h2>

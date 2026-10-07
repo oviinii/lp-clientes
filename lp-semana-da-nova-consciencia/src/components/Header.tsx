@@ -41,7 +41,7 @@ export function Header() {
               <a
                 key={link.href}
                 href={link.href}
-                className="text-sm font-medium text-brand-muted transition-colors hover:text-brand-gold"
+                className="text-[11px] font-bold uppercase tracking-[0.14em] text-brand-muted transition-colors hover:text-brand-gold"
               >
                 {link.label}
               </a>
@@ -76,7 +76,7 @@ export function Header() {
                     key={link.href}
                     href={link.href}
                     onClick={() => setOpen(false)}
-                    className="text-base font-medium text-brand-ice transition-colors hover:text-brand-gold"
+                    className="text-sm font-bold uppercase tracking-[0.14em] text-brand-ice transition-colors hover:text-brand-gold"
                   >
                     {link.label}
                   </a>

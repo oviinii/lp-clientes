@@ -9,7 +9,7 @@ import { Award, Mic2, Users } from 'lucide-react';
  */
 export function Mentora() {
   return (
-    <section id="mentora" className="relative scroll-mt-28 overflow-hidden py-24 md:scroll-mt-32">
+    <section id="mentora" className="relative scroll-mt-28 overflow-hidden py-20 sm:py-24 md:scroll-mt-32">
       {/* Fundo: plateia do último evento, tratada na identidade navy da campanha */}
       <div className="absolute inset-0" aria-hidden="true">
         <img
