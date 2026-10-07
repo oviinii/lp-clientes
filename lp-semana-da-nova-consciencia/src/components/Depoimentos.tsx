@@ -1,26 +1,63 @@
 import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react';
+import { ArrowRight, ChevronLeft, ChevronRight, Quote } from 'lucide-react';
 
 /**
  * Sessão 02 do briefing — depoimentos.
- * CORREÇÃO: o carrossel anterior quebrava ao passar as páginas porque
- *  1. cada print tinha uma proporção diferente (422px a 1381px de altura), o que fazia
- *     a seção inteira "pular" a cada troca de página;
- *  2. as setas ficavam posicionadas fora do container e sumiam no mobile;
- *  3. 2 dos 8 depoimentos disponíveis em public/depoimentos nunca apareciam.
- * Agora: slides com proporção fixa + object-contain (altura estável), avanço por página,
- * arraste (swipe) no mobile, setas dentro do container e todos os depoimentos no rodízio.
+ *
+ * Por que os prints saíram da página:
+ *  1. Cada print tinha uma proporção diferente (422px a 1381px de altura), o que fazia a
+ *     seção inteira "pular" a cada troca de página.
+ *  2. Os prints expõem dados pessoais: em 7 dos 8 aparece o telefone com DDD do cliente
+ *     logo acima da mensagem (não é uma barra de cabeçalho — o número fica inline, acima
+ *     de cada bloco de mensagem, o que torna o recorte automático pouco confiável).
+ *
+ * Solução: cards de depoimento transcritos, todos com a MESMA altura, com o texto fiel do
+ * que foi escrito (sem correções) e apenas nome + inicial (sem telefone, e-mail ou link).
+ * Os arquivos originais foram movidos de `public/` para `depoimentos-originais/` para não
+ * serem servidos no deploy.
  */
-const prints = [
-  '/depoimentos/IMG_2657.jpg',
-  '/depoimentos/IMG_2664.jpg',
-  '/depoimentos/IMG_2668.jpg',
-  '/depoimentos/IMG_2670.jpg',
-  '/depoimentos/IMG_2672.jpg',
-  '/depoimentos/IMG_2673.jpg',
-  '/depoimentos/ddb36d34-66a9-4be0-81d2-3c869d73e42a.jpg',
-  '/depoimentos/7489452d-0604-4886-9021-165859fcc1dd.jpg',
+const depoimentos = [
+  {
+    autor: 'Leonice A.',
+    texto:
+      'LEANDRA amei tudo foi tudo maravilhoso, a recepção do hotel as apresentações dos palestrantes o almoço o lanche da tarde, foi tudo de bom, gostei muito gratidão gratidão gratidão você Leandra e maravilhosa amei te conhecer',
+  },
+  {
+    autor: 'Adelia M.',
+    texto:
+      'Oi Leandra e Valter!!! Adorei conhece-los pessoalmente. E que congresso vocês prepararam para nós. !!!!!! Quantas informações maravilhosas!!! Obrigada por tanta dedicação e empenho. Espero ve-los em breve. Um grande abraço!!! ❤️❤️❤️❤️',
+  },
+  {
+    autor: 'Glauciarpaula',
+    texto:
+      'O Congresso pode ser definido por uma única palavra. PERFEITO em tudo. amei.\n\nGostaria de saber se o texto que o Prof Ergom leu no final pode ser enviado. Achei maravilhoso..',
+  },
+  {
+    autor: 'Katia A.',
+    texto:
+      'Leandra equipe!\nGratidão pelo evento maravilhoso!!!!!\nAmei, aprendi muito e sei que é só o começo...\nOs 2 dias passaram voando...\nSenti uma energia linda!!!\nParabéns aos palestrantes também.... entrei em contato com coisas fantásticas...\nGratidão ao Universo, Deus e à espiritualidade toda por ter acesso à todo esse ensinamento.\n\nLindas vibrações à todos!!!\n🌷💙🩵💙🩵💙🩵💙🌷',
+  },
+  {
+    autor: 'Participante',
+    texto:
+      'Parabéns e gratidão a Leandra e toda equipe maravilhosa!!! Muita emoção e crescimento pessoal nesses 2 dias abençoados. Já estou inscrita para o terceiro Congresso. 😍',
+  },
+  {
+    autor: 'Vera',
+    texto:
+      'Parabéns Leandra, a você e a toda sua equipe, pelo congresso maravilhoso e inesquecível que vocês nos proporcionaram!\nVocê é muito iluminada! Gratidão por tudo! 🙏✨🙏✨🙏✨🙏✨',
+  },
+  {
+    autor: 'Jana',
+    texto:
+      'Eu gostaria de agradecer a todos envolvidos no Congresso, em especial aos organizadores que deram um show em simpatia.\nPalestras maravilhosas e muitos conhecimentos adquiridos.\nQue a luz do Mestre Jesus abençoe a todos vcs 🙏\nE com certeza não deixarei de ir aos próximos .',
+  },
+  {
+    autor: 'Rosangela T.',
+    texto:
+      'Parabéns! Gratidão 🙏 😍\nQuerida Leandra, toda equipe organizadora e os Anjos de Luz incansáveis que cuidaram com tanto carinho da organização impecável do congresso .\nFoi maravilhoso! Indescrítível! 🙏\n🙏 😍\nTenho a certeza que para vencer cada etapa desde o início sonharam, planejaram e realizaram com muito esforço , trabalho, dedicação e amor 💖 cada momento. Gratidão 🙏 por cada palestrante, cada ensinamento, abraço, amigos, verdades que soubemos e nos levam para uma jornada de crescimento melhor !\nQue o Mestre Jesus 🙏 abençoe a todos os envolvidos.\nEm especial a você, Leandra e ao Valter , Companheiro incansável nesta jornada de luz .',
+  },
 ];
 
 function usePerView() {
@@ -46,9 +83,9 @@ export function Depoimentos() {
   const perView = usePerView();
   const [page, setPage] = useState(0);
 
-  const totalPages = Math.max(1, Math.ceil(prints.length / perView));
+  const totalPages = Math.max(1, Math.ceil(depoimentos.length / perView));
 
-  // Mantém a página válida quando o número de slides por página muda (responsivo)
+  // Mantém a página válida quando o número de cards por página muda (responsivo)
   useEffect(() => {
     setPage((atual) => Math.min(atual, totalPages - 1));
   }, [totalPages]);
@@ -71,10 +108,9 @@ export function Depoimentos() {
         </h2>
 
         <div className="relative mx-auto mt-14 max-w-6xl">
-          {/* Trilho do carrossel — altura estável, independente da proporção de cada print */}
           <div className="overflow-hidden">
             <motion.div
-              className="flex cursor-grab select-none active:cursor-grabbing"
+              className="flex cursor-grab select-none items-stretch active:cursor-grabbing"
               animate={{ x: `-${page * 100}%` }}
               transition={{ type: 'spring', stiffness: 260, damping: 32 }}
               drag="x"
@@ -85,17 +121,23 @@ export function Depoimentos() {
                 else if (info.offset.x > 60) prev();
               }}
             >
-              {prints.map((src, idx) => (
-                <div key={src} className="shrink-0 px-2 sm:px-3" style={{ width: `${100 / perView}%` }}>
-                  <div className="relative aspect-[4/5] w-full overflow-hidden rounded-2xl border border-brand-gold/25 bg-brand-night/70 shadow-card">
-                    <img
-                      src={src}
-                      alt={`Depoimento ${idx + 1} de participante da Semana da Nova Consciência`}
-                      loading="lazy"
-                      draggable={false}
-                      className="absolute inset-0 h-full w-full object-contain"
-                    />
-                  </div>
+              {depoimentos.map((d, idx) => (
+                <div key={d.autor + idx} className="shrink-0 px-2 sm:px-3" style={{ width: `${100 / perView}%` }}>
+                  {/* Altura fixa igual para todos os cards: o carrossel nunca muda de tamanho */}
+                  <article className="card-cosmic cosmic flex h-[22rem] flex-col p-6 text-left sm:p-7">
+                    <Quote className="shrink-0 text-brand-gold" size={26} aria-hidden="true" />
+
+                    <p className="mt-4 flex-1 overflow-hidden whitespace-pre-line text-sm leading-relaxed text-brand-ice/90 line-clamp-[10] sm:line-clamp-[11]">
+                      {d.texto}
+                    </p>
+
+                    <footer className="mt-5 shrink-0 border-t border-white/10 pt-4">
+                      <p className="text-base font-extrabold text-white">{d.autor}</p>
+                      <p className="mt-0.5 text-xs uppercase tracking-[0.14em] text-brand-muted">
+                        Participante do congresso
+                      </p>
+                    </footer>
+                  </article>
                 </div>
               ))}
             </motion.div>
@@ -144,7 +186,12 @@ export function Depoimentos() {
           </>
         )}
 
-        <a href="#ingressos" className="btn-gold mt-12">
+        <p className="mx-auto mt-10 max-w-3xl text-sm text-brand-muted">
+          Mensagens enviadas por participantes do Congresso Multidimensional, realizado pela mesma equipe.
+          Textos transcritos exatamente como foram escritos; telefones e dados pessoais foram removidos.
+        </p>
+
+        <a href="#ingressos" className="btn-gold mt-10">
           Quero minha vaga
           <ArrowRight size={18} />
         </a>

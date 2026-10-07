@@ -86,13 +86,37 @@ Antes o tema usava roxo (`#3b0b59`) + dourado apagado (`#cda13c`) — cores que 
 2. **Setas fora do container:** `left-[-16px]` / `right-[-16px]` posicionavam os botões fora da área visível no mobile.
 3. **Depoimentos nunca exibidos:** o array tinha só 6 itens, mas existem 8 arquivos na pasta (2 nunca apareciam).
 
-**Depois** (`src/components/Depoimentos.tsx`):
-- Slides com **proporção fixa** (`aspect-[4/5]`) e `object-contain` → altura estável, o print sempre inteiro e sem distorção.
-- Navegação por página com animação `spring` (sem `AnimatePresence`, sem remontagem de imagens).
-- **Arraste/swipe** no mobile (`drag="x"` + gatilho de 60px).
-- Setas **dentro** do container no mobile e fora apenas no desktop largo; escondidas quando há só 1 página.
-- Responsivo: 1 slide (mobile), 2 (≥640px), 3 (≥1024px), com a página reajustada automaticamente ao mudar o breakpoint.
-- Os **8 depoimentos** entram no rodízio; indicadores com `aria-current` e rótulos acessíveis.
+**Depois** (`src/components/Depoimentos.tsx`) — **os prints foram substituídos por cards transcritos**:
+- Cada depoimento virou um **card de texto com altura idêntica** (`h-[22rem]`) → o carrossel não muda de tamanho em nenhuma página e o "pulo" desaparece na raiz do problema.
+- Texto **transcrito fielmente** (erros, CAIXA ALTA, emojis e pontuação preservados). Apenas 3 depoimentos mais longos aparecem com final cortado pelo limite de linhas do card; os textos integrais estão no final desta seção.
+- Autoria exibida como **nome + inicial** (ex.: "Leonice A.") ou "Participante" — **sem telefone, e-mail, CPF ou link**.
+- Navegação por página com animação `spring`, **arraste/swipe** no mobile (gatilho de 60px), setas dentro do container no mobile e fora no desktop largo, indicadores com `aria-current`.
+- Responsivo: 1 card (mobile), 2 (≥640px), 3 (≥1024px), com a página reajustada ao mudar o breakpoint.
+- **Resultado colateral positivo:** a seção deixou de carregar ~2,5 MB de imagens.
+
+#### Por que os prints saíram da página (achado importante)
+
+Ao transcrever os 8 prints, apareceu um problema que não estava no briefing: **em 7 dos 8 aparece o telefone com DDD do cliente**. Não é uma barra de cabeçalho — o número fica **inline, acima do bloco de mensagem**, misturado ao conteúdo. Isso significa que:
+
+- **a versão publicada anteriormente expunha telefones de clientes reais** (dado pessoal — atenção à LGPD);
+- recortar o cabeçalho automaticamente é pouco confiável: um corte fixo de 15% decepou a primeira linha do texto, e a detecção por linha uniforme errou em pelo menos uma imagem (a que não tem cabeçalho, `IMG_2670`), onde o corte comeria a mensagem.
+
+Por isso os 8 arquivos originais foram **movidos de `public/depoimentos/` para `depoimentos-originais/`** (`git mv`, histórico preservado): continuam no repositório e no disco, mas **não são mais servidos no deploy**. Se o cliente quiser exibir as conversas originais como prova, é preciso enviar versões **autorizadas e com os telefones removidos** — aí é só reativar um bloco de imagem no card.
+
+#### Textos integrais transcritos (fonte de verdade)
+
+| Arquivo original | Autor exibido | Transcrição |
+|---|---|---|
+| `7489452d-...jpg` | Leonice A. | LEANDRA amei tudo foi tudo maravilhoso, a recepção do hotel as apresentações dos palestrantes o almoço o lanche da tarde, foi tudo de bom, gostei muito gratidão gratidão gratidão você Leandra e maravilhosa amei te conhecer |
+| `IMG_2657.jpg` | Adelia M. | Oi Leandra e Valter!!! Adorei conhece-los pessoalmente. E que congresso vocês prepararam para nós. !!!!!! Quantas informações maravilhosas!!! Obrigada por tanta dedicação e empenho. Espero ve-los em breve. Um grande abraço!!! ❤️❤️❤️❤️ |
+| `IMG_2664.jpg` | Glauciarpaula | O Congresso pode ser definido por uma única palavra. PERFEITO em tudo. amei. / Gostaria de saber se o texto que o Prof Ergom leu no final pode ser enviado. Achei maravilhoso.. |
+| `IMG_2668.jpg` | Katia A. | Leandra equipe! Gratidão pelo evento maravilhoso!!!!! Amei, aprendi muito e sei que é só o começo... Os 2 dias passaram voando... Senti uma energia linda!!! Parabéns aos palestrantes também.... entrei em contato com coisas fantásticas... Gratidão ao Universo, Deus e à espiritualidade toda por ter acesso à todo esse ensinamento. Lindas vibrações à todos!!! 🌷💙🩵💙🩵💙🩵💙🌷 |
+| `IMG_2670.jpg` | Participante | Parabéns e gratidão a Leandra e toda equipe maravilhosa!!! Muita emoção e crescimento pessoal nesses 2 dias abençoados. Já estou inscrita para o terceiro Congresso. 😍 |
+| `IMG_2672.jpg` | Vera | Parabéns Leandra, a você e a toda sua equipe, pelo congresso maravilhoso e inesquecível que vocês nos proporcionaram! Você é muito iluminada! Gratidão por tudo! 🙏✨🙏✨🙏✨🙏✨ |
+| `IMG_2673.jpg` | Jana | Eu gostaria de agradecer a todos envolvidos no Congresso, em especial aos organizadores que deram um show em simpatia. Palestras maravilhosas e muitos conhecimentos adquiridos. Que a luz do Mestre Jesus abençoe a todos vcs 🙏 E com certeza não deixarei de ir aos próximos . |
+| `ddb36d34-...jpg` | Rosangela T. | Parabéns! Gratidão 🙏 😍 Querida Leandra, toda equipe organizadora e os Anjos de Luz incansáveis que cuidaram com tanto carinho da organização impecável do congresso . Foi maravilhoso! Indescrítível! 🙏 🙏 😍 Tenho a certeza que para vencer cada etapa desde o início sonharam, planejaram e realizaram com muito esforço , trabalho, dedicação e amor 💖 cada momento. Gratidão 🙏 por cada palestrante, cada ensinamento, abraço, amigos, verdades que soubemos e nos levam para uma jornada de crescimento melhor ! Que o Mestre Jesus 🙏 abençoe a todos os envolvidos. Em especial a você, Leandra e ao Valter , Companheiro incansável nesta jornada de luz . |
+
+> **Atenção (conteúdo e autorização):** os depoimentos são sobre o **Congresso Multidimensional** (2 dias, presencial), não sobre a Semana da Nova Consciência (5 dias, online). Por isso a seção traz a ressalva "mensagens enviadas por participantes do Congresso Multidimensional, realizado pela mesma equipe". Também é necessário **consentimento documentado** dos autores para uso de nome, texto e imagem — e vale atenção a menções religiosas ("Mestre Jesus", "Anjos de Luz", "Universo") e a relatos de resultado subjetivo, que não devem ser lidos como promessa de resultado.
 
 ### 2.4 Sessão 03 / Programação — "Fundo claro com as caixinhas referentes aos dias e imagens condizentes com os títulos dos dias. As caixinhas precisam dar contraste no fundo claro, com identidade cósmica ou galáxia etc."
 
@@ -209,6 +233,7 @@ As cópias estão em `public/imagens/opt/` (mesmos nomes) e os **originais foram
 6. **Correção de texto no FAQ** — o DOCX (e a página) dizem "certificado de participação na **Semana da Expansão da Consciência**", mas o evento é "Semana da **Nova** Consciência". Mantido como está no DOCX; precisa de confirmação.
 7. **Resposta do FAQ sobre horários** — redigida por nós; validar.
 8. **Texto dos dias 2 a 5** — DOCX vs criativos divergem (ver 2.4).
+9. **Depoimentos** — textos transcritos dos prints e autorias reduzidas a nome + inicial. É necessário **consentimento documentado** dos autores (nome/texto/imagem) antes de publicar. Se o cliente quiser mostrar as conversas originais como prova, precisa enviar versões com os **telefones removidos** (os atuais expõem dados pessoais — ver 2.3).
 
 ---
 
@@ -224,7 +249,8 @@ As cópias estão em `public/imagens/opt/` (mesmos nomes) e os **originais foram
 | Hierarquia de títulos | exatamente **1 `<h1>`** (10 `h2`, 16 `h3`) |
 | Lixo no HTML | nenhum `undefined`, `NaN`, `[object Object]` ou `TODO_*` vazando |
 | Checklist dos itens grifados | **todos OK** (hero à esquerda, fundo claro + caixas cósmicas na programação, Leandra + plateia, caixa clara contrastante, partículas lúdicas, vagas limitadas, lote 1 50%) |
-| Carrossel | 8 slides renderizados |
+| Carrossel (versão final, após a transcrição) | **8 cards** com altura idêntica (`h-[22rem]`), **0 imagens de print** no DOM, 8 autores presentes |
+| `dist/` após a mudança | os prints **não são mais gerados no build** (saíram de `public/`) |
 | Correção pós-QA | adicionadas classes `scroll-mt-28 md:scroll-mt-32` nas seções (o header fixo cobria o topo da seção ao usar o menu) — `tsc` reexecutado sem erros |
 
 Como a QA foi feita: o build de produção foi congelado em HTML estático (snapshot do DOM renderizado pelo Chrome) e analisado por script — verificação estrutural/conteúdo, não visual.
@@ -241,7 +267,7 @@ src/App.tsx                                 (ordem/ids das seções)
 src/components/Header.tsx                   (faixa de campanha, paleta, menu animado)
 src/components/Hero.tsx                     (alinhado à esquerda + identidade do criativo)
 src/components/Pilares.tsx                  (imagens por conceito + duotone)
-src/components/Depoimentos.tsx              (correção do carrossel)
+src/components/Depoimentos.tsx              (cards transcritos com altura uniforme; prints fora do ar)
 src/components/Programacao.tsx              (fundo claro + caixas cósmicas + imagem por dia)
 src/components/Mentora.tsx                  (Leandra + plateia do último evento)
 src/components/Egregora.tsx                 (paleta + assinatura)
@@ -253,6 +279,7 @@ src/components/Apoiadores.tsx               (espaços reservados)
 src/components/FAQ.tsx                      (paleta + pergunta de horários + CTA)
 src/components/Footer.tsx                   (paleta + contatos)
 public/imagens/opt/*.jpg                    (novas cópias otimizadas)
+depoimentos-originais/*.jpg                 (prints movidos de public/depoimentos — fora do deploy)
 ALTERACOES.md                               (este documento)
 ```
 
