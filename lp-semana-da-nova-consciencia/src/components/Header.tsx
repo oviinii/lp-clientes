@@ -27,12 +27,12 @@ export function Header() {
       </div>
 
       <div className="border-b border-white/10 bg-brand-night/85 backdrop-blur-lg">
-        <div className="container mx-auto flex h-16 items-center justify-between px-4 md:h-20">
+        <div className="container mx-auto flex h-24 items-center justify-between px-4 md:h-28">
           <a href="#inicio" className="flex items-center" aria-label="Semana da Nova Consciência">
             <img
               src="/logos/Logo%20horizontal%20POSITIVO.png"
               alt="Semana da Nova Consciência"
-              className="h-9 w-auto object-contain md:h-12"
+              className="h-20 w-auto object-contain md:h-24"
             />
           </a>
 

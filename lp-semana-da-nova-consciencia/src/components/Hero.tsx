@@ -35,7 +35,7 @@ export function Hero() {
         aria-hidden="true"
       />
 
-      <div className="container relative z-10 mx-auto max-w-4xl px-4 pb-24 pt-36 text-left lg:pt-40">
+      <div className="container relative z-10 mx-auto max-w-4xl px-4 pb-24 pt-44 text-left lg:pt-48">
         <motion.span
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}

@@ -20,7 +20,7 @@ export function Footer() {
             <img
               src="/logos/Logo%20horizontal%20POSITIVO.png"
               alt="Semana da Nova Consciência"
-              className="mb-5 h-12 w-auto object-contain"
+              className="mb-5 h-[10.5rem] w-auto max-w-full object-contain"
             />
             <p className="leading-relaxed text-brand-muted">
               De 2 a 6 de dezembro de 2026. Mais de 25 palestras, entrevistas e vivências para romper
