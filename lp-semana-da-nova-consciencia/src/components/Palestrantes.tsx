@@ -66,7 +66,7 @@ export function Palestrantes() {
                   aria-hidden="true"
                 />
                 <div className="absolute inset-0 bg-brand-blue/30 mix-blend-color" aria-hidden="true" />
-                <span className="absolute left-4 top-4 rounded-full border border-white/20 bg-brand-night/80 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.18em] text-white/75 backdrop-blur">
+                <span className="absolute left-4 top-4 rounded-full border border-white/20 bg-brand-night/80 px-3 py-1 text-xs font-bold uppercase tracking-[0.18em] text-white/75 backdrop-blur">
                   Em breve · nome oficial
                 </span>
               </div>

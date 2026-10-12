@@ -62,7 +62,7 @@ export function Comparacao() {
                 className="grid items-center gap-2 md:grid-cols-2 md:gap-8"
               >
                 <div className="md:border-r md:border-brand-night/10 md:pr-8 md:text-right">
-                  <span className="mb-1 block text-[10px] font-bold uppercase tracking-[0.2em] text-brand-night/40 md:hidden">
+                  <span className="mb-1 block text-xs font-bold uppercase tracking-[0.2em] text-brand-night/40 md:hidden">
                     2026 · preparação
                   </span>
                   <p className="text-base text-brand-night/60 md:text-lg">{item.ano26}</p>
@@ -75,7 +75,7 @@ export function Comparacao() {
                 />
 
                 <div className="rounded-2xl bg-brand-night/5 px-4 py-3 md:bg-transparent md:px-0 md:py-0 md:pl-8 md:text-left">
-                  <span className="mb-1 block text-[10px] font-bold uppercase tracking-[0.2em] text-brand-goldDeep md:hidden">
+                  <span className="mb-1 block text-xs font-bold uppercase tracking-[0.2em] text-brand-goldDeep md:hidden">
                     2027 · o salto
                   </span>
                   <p className="text-base font-bold text-brand-night md:text-lg">{item.ano27}</p>

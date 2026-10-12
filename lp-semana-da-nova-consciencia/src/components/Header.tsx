@@ -18,7 +18,7 @@ export function Header() {
     <header className="fixed inset-x-0 top-0 z-50">
       {/* Faixa de campanha — reforça data e vagas limitadas (identidade dos criativos) */}
       <div className="bg-gradient-to-r from-brand-goldDeep via-brand-gold to-brand-goldDeep text-brand-night">
-        <p className="container mx-auto flex flex-wrap items-center justify-center gap-x-3 gap-y-1 px-4 py-2 text-center text-[11px] font-bold uppercase tracking-[0.14em]">
+        <p className="container mx-auto flex flex-wrap items-center justify-center gap-x-3 gap-y-1 px-4 py-2 text-center text-xs font-bold uppercase tracking-[0.14em]">
           <Sparkles size={13} />
           <span>De 2 a 6 de dezembro · 100% online</span>
           <span className="hidden h-3 w-px bg-brand-night/30 sm:block" />
@@ -30,7 +30,7 @@ export function Header() {
         <div className="container mx-auto flex h-16 items-center justify-between px-4 md:h-20">
           <a href="#inicio" className="flex items-center" aria-label="Semana da Nova Consciência">
             <img
-              src="/logos/logo-horizontal-1.png"
+              src="/logos/Logo%20horizontal%20POSITIVO.png"
               alt="Semana da Nova Consciência"
               className="h-9 w-auto object-contain md:h-12"
             />
@@ -41,7 +41,7 @@ export function Header() {
               <a
                 key={link.href}
                 href={link.href}
-                className="text-[11px] font-bold uppercase tracking-[0.14em] text-brand-muted transition-colors hover:text-brand-gold"
+                className="text-xs font-bold uppercase tracking-[0.14em] text-brand-muted transition-colors hover:text-brand-gold"
               >
                 {link.label}
               </a>

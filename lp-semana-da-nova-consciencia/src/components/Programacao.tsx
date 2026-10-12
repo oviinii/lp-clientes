@@ -14,40 +14,43 @@ const dias = [
     verbo: 'Reconhecer',
     tema: 'Entendimento do cenário',
     titulo: '2027 está chegando: o que vai mudar na humanidade e como isso afetará minha vida?',
-    img: '/imagens/opt/IMG_8663.jpg',
-    alt: 'Plateia reunida no último congresso, com as mãos levantadas',
+    img: '/imagens/dia1-planeta-humanidade.png',
+    alt: 'Planeta Terra sobre a multidão — o que está mudando na humanidade',
+    pos: '[object-position:50%_28%]',
   },
   {
     dia: 2,
     verbo: 'Compreender',
     tema: 'Compreender a estrutura oculta',
     titulo: 'Descubra as estratégias invisíveis de quem ainda tenta programar sua mente.',
-    img: '/imagens/imagem de capa2.webp',
-    alt: 'Arte cósmica com silhueta iluminada, planetas e geometria sagrada',
+    img: '/imagens/opt/IMG_8902.jpg',
+    alt: 'Mentora conduzindo o evento no palco',
+    pos: '[object-position:50%_15%]',
   },
   {
     dia: 3,
     verbo: 'Libertar',
     tema: 'Libertar-se das correntes de escassez emocional',
     titulo: 'Reconheça padrões, crenças e feridas e veja como curá-los.',
-    img: '/imagens/Roda de Cura Tridimensional.jpg',
-    alt: 'Roda de cura tridimensional conduzida no palco do evento',
+    img: '/imagens/CONGRESSOMULTIDIMENSIONAL-00123.jpg',
+    alt: 'Mulheres em vivência coletiva durante o congresso',
   },
   {
     dia: 4,
     verbo: 'Ativar',
     tema: 'Ativar a consciência capaz de desejar e realizar',
     titulo: 'Ancore realizações infinitas com ferramentas de práticas quânticas seguras.',
-    img: '/imagens/opt/IMG_8902.jpg',
-    alt: 'Mentora conduzindo o evento no palco',
+    img: '/imagens/opt/IMG_8671.jpg',
+    alt: 'Participantes em momento de ativação no evento',
+    pos: '[object-position:50%_15%]',
   },
   {
     dia: 5,
     verbo: 'Atravessar',
     tema: 'Extrair o melhor dos portais abertos no próximo ano',
     titulo: 'Como aproveitar o salto de consciência de 2027 para manifestar saúde, amor e prosperidade.',
-    img: '/imagens/opt/CONGRESSOMULTIDIMENSIONAL-00127.jpg',
-    alt: 'Palco do congresso com telão e a mentora em destaque',
+    img: '/imagens/opt/CONGRESSOMULTIDIMENSIONAL-00130.jpg',
+    alt: 'Participante em profunda conexão durante vivência',
   },
 ];
 
@@ -68,7 +71,8 @@ export function Programacao() {
             </h2>
           </div>
           <p className="text-base leading-relaxed text-brand-night/70 lg:col-span-5 lg:pb-2 lg:text-lg">
-            Cinco encontros ao vivo, cada um abrindo uma nova camada da sua consciência.
+            Mais de 25 palestras, entrevistas e vivências ao vivo para romper padrões antigos e manifestar
+            uma nova realidade em 2027.
           </p>
         </div>
         <div className="hairline mb-12 mt-10 lg:mt-12" aria-hidden="true" />
@@ -89,7 +93,7 @@ export function Programacao() {
                   src={item.img}
                   alt={item.alt}
                   loading="lazy"
-                  className="absolute inset-0 h-full w-full object-cover"
+                  className={`absolute inset-0 h-full w-full object-cover ${'pos' in item && item.pos ? item.pos : ''}`}
                 />
                 <div
                   className="absolute inset-0 bg-gradient-to-t from-brand-night via-brand-night/50 to-transparent md:bg-gradient-to-r"

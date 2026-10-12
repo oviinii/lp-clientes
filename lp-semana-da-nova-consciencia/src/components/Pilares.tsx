@@ -22,14 +22,14 @@ const cards = [
     titulo: 'Relacionamentos',
     subtitulo: 'Para amar e ser amada',
     descricao: 'Acolhimento, afeto genuíno e a troca de carinho que cura vínculos.',
-    img: '/imagens/opt/IMG_8671.jpg',
+    img: '/imagens/opt/IMG_8663.jpg',
     marca: '◈',
   },
   {
     titulo: 'Prosperidade',
     subtitulo: 'Para realizar',
     descricao: 'Confiança, clareza de futuro e segurança para manifestar abundância.',
-    img: '/imagens/IMG_5398.jpg',
+    img: '/imagens/opt/IMG_8671.jpg',
     marca: '✦',
   },
 ];
@@ -89,23 +89,17 @@ export function Pilares() {
                 </span>
               </div>
 
-              <div className="relative -mt-12 px-6 pb-7">
+              <div className="relative -mt-12 px-6 pb-7 pt-2">
                 <h3 className="text-xl text-white sm:text-2xl">{card.titulo}</h3>
-                <p className="mt-2 text-[10px] font-bold uppercase tracking-[0.2em] text-brand-gold">
+                <p className="mb-1 mt-3 px-1 text-xs font-bold uppercase leading-relaxed tracking-[0.2em] text-brand-gold">
                   {card.subtitulo}
                 </p>
-                <p className="mt-4 text-sm leading-relaxed text-brand-muted">{card.descricao}</p>
+                <p className="mt-4 text-base leading-relaxed text-brand-muted">{card.descricao}</p>
               </div>
             </motion.article>
           ))}
         </div>
 
-        <div className="hairline mt-14" aria-hidden="true" />
-
-        <p className="mx-auto mt-8 max-w-3xl text-center text-sm text-brand-muted">
-          Imersão conduzida por mulheres com mais de 30 anos de experiência em saúde, relacionamentos e
-          prosperidade.
-        </p>
       </div>
     </section>
   );

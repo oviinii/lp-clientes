@@ -18,7 +18,7 @@ export function Footer() {
         <div className="grid gap-12 md:grid-cols-3">
           <div>
             <img
-              src="/logos/logo-horizontal-1.png"
+              src="/logos/Logo%20horizontal%20POSITIVO.png"
               alt="Semana da Nova Consciência"
               className="mb-5 h-12 w-auto object-contain"
             />
@@ -33,7 +33,7 @@ export function Footer() {
             <ul className="space-y-3">
               {links.map((link) => (
                 <li key={link.href}>
-                  <a href={link.href} className="text-[11px] font-bold uppercase tracking-[0.14em] text-brand-muted transition-colors hover:text-brand-gold">
+                  <a href={link.href} className="text-xs font-bold uppercase tracking-[0.14em] text-brand-muted transition-colors hover:text-brand-gold">
                     {link.label}
                   </a>
                 </li>

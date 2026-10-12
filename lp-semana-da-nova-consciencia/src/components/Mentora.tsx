@@ -38,10 +38,10 @@ export function Mentora() {
               src="/imagens/IMG_5398.jpg"
               alt="Leandra Soares, organizadora da Semana da Nova Consciência"
               loading="lazy"
-              className="relative w-full rounded-[2rem] border-2 border-brand-gold/50 object-cover shadow-glow"
+              className="relative aspect-[4/5] w-full rounded-[2rem] border-2 border-brand-gold/50 object-cover object-top shadow-glow"
             />
             <div className="animate-floaty absolute -bottom-6 -right-4 rounded-2xl border border-brand-gold/40 bg-brand-night/95 px-5 py-3 text-right shadow-card backdrop-blur sm:-right-8">
-              <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-brand-gold">Realizadora</p>
+              <p className="text-xs font-bold uppercase tracking-[0.2em] text-brand-gold">Realizadora</p>
               <p className="text-base font-extrabold text-white">Leandra Soares</p>
             </div>
           </motion.div>

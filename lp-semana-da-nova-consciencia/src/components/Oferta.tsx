@@ -64,7 +64,7 @@ export function Oferta() {
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="paper relative flex flex-col overflow-hidden rounded-3xl border border-white/15 p-8 text-brand-ink shadow-card lg:mt-10 lg:p-9"
+            className="paper relative flex flex-col overflow-hidden rounded-3xl border border-white/15 p-8 text-brand-ink shadow-card order-2 lg:mt-10 lg:p-9"
           >
             <span className="absolute right-0 top-7 rotate-[-6deg] rounded-l-xl bg-brand-gold px-4 py-2 text-sm font-black uppercase tracking-[0.08em] text-brand-night shadow-gold">
               50% OFF
@@ -72,12 +72,12 @@ export function Oferta() {
 
             <div className="border-b border-brand-night/10 pb-8">
               <h3 className="text-xl text-brand-night sm:text-2xl">Acesso Promocional</h3>
-              <p className="mt-3 inline-flex items-center gap-2 rounded-full border border-brand-night/15 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.16em] text-brand-night/70">
+              <p className="mt-3 inline-flex items-center gap-2 rounded-full border border-brand-night/15 px-3 py-1 text-xs font-bold uppercase tracking-[0.16em] text-brand-night/70">
                 <BadgePercent size={13} />
                 Lote 1 · com 50% de desconto
               </p>
 
-              <p className="mt-7 text-xs font-bold uppercase tracking-[0.16em] text-brand-night/70">
+              <p className="mt-7 text-sm font-bold uppercase tracking-[0.16em] text-brand-night/70">
                 De <span className="line-through">R$ 497,00</span> por apenas
               </p>
               <p className="mt-2 text-6xl font-black leading-none text-brand-night sm:text-7xl">
@@ -117,10 +117,10 @@ export function Oferta() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.12 }}
-            className="card-vip cosmic relative flex flex-col p-8 lg:p-9"
+            className="card-vip cosmic relative flex flex-col p-8 order-1 lg:p-9"
           >
             <span className="absolute inset-x-0 top-0 flex justify-center">
-              <span className="rounded-b-2xl bg-gradient-to-r from-brand-goldDeep via-brand-gold to-brand-goldDeep px-6 py-2 text-[10px] font-black uppercase tracking-[0.14em] text-brand-night shadow-lg">
+              <span className="rounded-b-2xl bg-gradient-to-r from-brand-goldDeep via-brand-gold to-brand-goldDeep px-6 py-2 text-xs font-black uppercase tracking-[0.14em] text-brand-night shadow-lg">
                 Escolhida por +90% dos participantes
               </span>
             </span>
@@ -128,16 +128,16 @@ export function Oferta() {
 
             <div className="relative border-b border-white/10 pb-8 pt-10">
               <h3 className="text-xl text-white sm:text-2xl">Acesso Comunidade Nova Era</h3>
-              <p className="mt-3 text-xs font-bold uppercase tracking-[0.18em] text-brand-gold">
+              <p className="mt-3 text-sm font-bold uppercase tracking-[0.18em] text-brand-gold">
                 Acesso completo + bônus
               </p>
 
-              <span className="mt-5 inline-flex animate-glow-pulse items-center gap-2 rounded-full bg-brand-gold px-4 py-1.5 text-[10px] font-black uppercase tracking-[0.18em] text-brand-night">
+              <span className="mt-5 inline-flex animate-glow-pulse items-center gap-2 rounded-full bg-brand-gold px-4 py-1.5 text-xs font-black uppercase tracking-[0.18em] text-brand-night">
                 <Flame size={13} />
                 Vagas limitadas
               </span>
 
-              <p className="mt-7 text-xs font-bold uppercase tracking-[0.16em] text-brand-muted">
+              <p className="mt-7 text-sm font-bold uppercase tracking-[0.16em] text-brand-muted">
                 De <span className="line-through">R$ 1.497,00</span> por apenas
               </p>
               <p className="mt-2 text-6xl font-black leading-none text-white sm:text-7xl">

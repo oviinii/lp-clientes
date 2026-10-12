@@ -3,20 +3,20 @@ import { Quote } from 'lucide-react';
 
 /**
  * Sessão 05 do briefing — Egrégora.
- * Mantida a arte do evento como fundo, agora na paleta navy/amarelo da campanha,
- * com atribuição à Leandra Soares (presente no texto do briefing).
+ * Ajuste pedido: fundo com imagem de egrégora — foto real da plateia em
+ * vivência coletiva, com véu navy para leitura do texto.
  */
 export function Egregora() {
   return (
     <section className="relative flex items-center justify-center overflow-hidden py-28 sm:py-32">
       <div className="absolute inset-0" aria-hidden="true">
         <img
-          src="/imagens/Roda de Cura Tridimensional.jpg"
+          src="/imagens/CONGRESSOMULTIDIMENSIONAL-00123.jpg"
           alt=""
           loading="lazy"
-          className="h-full w-full object-cover"
+          className="h-full w-full object-cover object-center"
         />
-        <div className="absolute inset-0 bg-brand-night/80" />
+        <div className="absolute inset-0 bg-brand-night/85" />
         <div className="absolute inset-0 bg-gradient-to-b from-brand-night via-brand-night/70 to-brand-night" />
         <div className="rings-gold absolute left-1/2 top-1/2 h-[120vh] w-[120vh] -translate-x-1/2 -translate-y-1/2 opacity-70" />
         <div className="stars absolute inset-0 opacity-50" />

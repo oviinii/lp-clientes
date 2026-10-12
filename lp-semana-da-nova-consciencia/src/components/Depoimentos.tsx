@@ -138,7 +138,7 @@ export function Depoimentos() {
                   <article className="card-cosmic cosmic flex h-[25rem] flex-col p-6 sm:p-7">
                     <Quote className="shrink-0 text-brand-gold/70" size={22} aria-hidden="true" />
 
-                    <p className="mt-4 flex-1 overflow-hidden whitespace-pre-line text-sm leading-relaxed text-brand-ice/90 line-clamp-[9]">
+                    <p className="mt-4 flex-1 overflow-hidden whitespace-pre-line text-base leading-relaxed text-brand-ice/90 line-clamp-[9]">
                       {d.texto}
                     </p>
 
@@ -151,7 +151,7 @@ export function Depoimentos() {
                           {d.autor}
                           <BadgeCheck size={14} className="shrink-0 text-brand-gold" aria-hidden="true" />
                         </p>
-                        <p className="mt-0.5 text-[10px] font-bold uppercase tracking-[0.14em] text-brand-muted">
+                        <p className="mt-0.5 text-xs font-bold uppercase tracking-[0.14em] text-brand-muted">
                           Participante do congresso
                         </p>
                       </div>
@@ -199,7 +199,7 @@ export function Depoimentos() {
               ))}
             </div>
 
-            <p className="mt-4 text-center text-[10px] font-bold uppercase tracking-[0.2em] text-brand-muted lg:hidden">
+            <p className="mt-4 text-center text-xs font-bold uppercase tracking-[0.2em] text-brand-muted lg:hidden">
               Arraste para o lado
             </p>
           </>

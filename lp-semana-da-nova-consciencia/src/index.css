@@ -84,7 +84,7 @@
      caixa alta, com o ornamento da marca. Usar `.chip-dark` sobre fundo claro.
      ------------------------------------------------------------------ */
   .chip {
-    @apply inline-flex items-center text-[11px] font-bold uppercase tracking-[0.26em] text-brand-gold;
+    @apply inline-flex items-center text-sm font-bold uppercase tracking-[0.18em] text-brand-gold;
   }
 
   .chip::before {

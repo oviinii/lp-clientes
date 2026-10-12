@@ -9,6 +9,7 @@ import { Palestrantes } from './components/Palestrantes';
 import { Comparacao } from './components/Comparacao';
 import { Frase } from './components/Frase';
 import { Oferta } from './components/Oferta';
+import { Garantia } from './components/Garantia';
 import { Apoiadores } from './components/Apoiadores';
 import { FAQ } from './components/FAQ';
 import { Footer } from './components/Footer';
@@ -31,6 +32,7 @@ function App() {
         <Oferta />
         <Apoiadores />
         <FAQ />
+        <Garantia />
       </main>
       <Footer />
     </div>
