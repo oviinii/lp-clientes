@@ -36,13 +36,7 @@ const cards = [
 
 export function Pilares() {
   return (
-    <section id="pilares" className="cosmic relative scroll-mt-28 overflow-hidden py-20 sm:py-24 md:scroll-mt-32">
-      <div className="stars absolute inset-0 opacity-40" aria-hidden="true" />
-      <div
-        className="absolute left-1/2 top-0 h-[600px] w-[900px] -translate-x-1/2 rounded-full bg-brand-blue/20 blur-[150px]"
-        aria-hidden="true"
-      />
-
+    <section id="pilares" className="relative scroll-mt-28 overflow-hidden bg-brand-night py-20 sm:py-24 md:scroll-mt-32">
       <div className="container relative z-10 mx-auto px-4">
         {/* Cabeçalho assimétrico: título à esquerda, apoio à direita na base */}
         <div className="grid gap-6 lg:grid-cols-12 lg:items-end">
@@ -68,7 +62,7 @@ export function Pilares() {
               viewport={{ once: true }}
               transition={{ delay: idx * 0.15 }}
               whileHover={{ y: -8 }}
-              className="group relative overflow-hidden rounded-3xl border border-white/10 bg-brand-deep/70 shadow-card"
+              className="group relative overflow-hidden rounded-3xl border border-white/10 bg-brand-deep shadow-card"
             >
               <div className="relative h-72 overflow-hidden">
                 <img
@@ -77,16 +71,10 @@ export function Pilares() {
                   loading="lazy"
                   className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
                 />
-                {/* Duotone navy para unificar as fotos na identidade cósmica da campanha */}
                 <div
-                  className="absolute inset-0 bg-gradient-to-t from-brand-night via-brand-night/45 to-transparent"
+                  className="absolute inset-0 bg-gradient-to-t from-brand-night via-brand-night/40 to-transparent"
                   aria-hidden="true"
                 />
-                <div className="absolute inset-0 bg-brand-blue/25 mix-blend-color" aria-hidden="true" />
-
-                <span className="absolute left-5 top-5 flex h-11 w-11 items-center justify-center rounded-2xl border border-brand-gold/40 bg-brand-night/80 text-xl text-brand-gold backdrop-blur">
-                  <span aria-hidden="true">{card.marca}</span>
-                </span>
               </div>
 
               <div className="relative -mt-12 px-6 pb-7 pt-2">

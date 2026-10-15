@@ -97,13 +97,7 @@ export function Depoimentos() {
   const prev = () => setPage((atual) => (atual - 1 + totalPages) % totalPages);
 
   return (
-    <section id="depoimentos" className="cosmic relative scroll-mt-28 overflow-hidden py-20 sm:py-24 md:scroll-mt-32">
-      <div className="stars absolute inset-0 opacity-40" aria-hidden="true" />
-      <div
-        className="absolute left-1/2 top-0 h-96 w-full max-w-3xl -translate-x-1/2 rounded-full bg-brand-gold/15 blur-[120px]"
-        aria-hidden="true"
-      />
-
+    <section id="depoimentos" className="relative scroll-mt-28 overflow-hidden bg-brand-night py-20 sm:py-24 md:scroll-mt-32">
       <div className="container relative z-10 mx-auto px-4">
         {/* Cabeçalho assimétrico */}
         <div className="grid gap-6 lg:grid-cols-12 lg:items-end">

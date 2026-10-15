@@ -31,17 +31,10 @@ export function Oferta() {
   return (
     <section
       id="ingressos"
-      className="cosmic relative scroll-mt-28 overflow-hidden py-28 sm:py-36 lg:py-40 md:scroll-mt-32"
+      className="relative scroll-mt-28 overflow-hidden bg-brand-night py-28 sm:py-36 lg:py-40 md:scroll-mt-32"
     >
-      {/* Portal: a luz do evento chega ao ponto mais alto da página */}
-      <div className="stars absolute inset-0 opacity-50" aria-hidden="true" />
-      <div className="stars-lg absolute inset-0 opacity-70" aria-hidden="true" />
       <div
-        className="rings-gold absolute left-1/2 top-[42%] h-[150vh] w-[150vh] -translate-x-1/2 -translate-y-1/2 animate-glow-pulse"
-        aria-hidden="true"
-      />
-      <div
-        className="absolute left-1/2 top-1/2 h-[560px] w-[560px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-brand-gold/15 blur-[130px]"
+        className="absolute left-1/2 top-1/2 h-[560px] w-[560px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-brand-royal/25 blur-[140px]"
         aria-hidden="true"
       />
 
@@ -124,8 +117,6 @@ export function Oferta() {
                 Escolhida por +90% dos participantes
               </span>
             </span>
-            <div className="stars absolute inset-0 opacity-40" aria-hidden="true" />
-
             <div className="relative border-b border-white/10 pb-8 pt-10">
               <h3 className="text-xl text-white sm:text-2xl">Acesso Comunidade Nova Era</h3>
               <p className="mt-3 text-sm font-bold uppercase tracking-[0.18em] text-brand-gold">

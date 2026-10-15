@@ -85,9 +85,9 @@ export function Programacao() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.2 }}
               transition={{ delay: idx * 0.06 }}
-              className="card-cosmic cosmic grid items-stretch overflow-hidden md:grid-cols-[0.85fr_1.15fr]"
+              className="card-light grid items-stretch overflow-hidden md:grid-cols-[0.85fr_1.15fr]"
             >
-              {/* Imagem condizente com o tema do dia, tratada na identidade cósmica */}
+              {/* Imagem condizente com o tema do dia */}
               <div className={`relative min-h-[220px] md:min-h-[260px] ${idx % 2 === 1 ? 'md:order-2' : ''}`}>
                 <img
                   src={item.img}
@@ -96,28 +96,26 @@ export function Programacao() {
                   className={`absolute inset-0 h-full w-full object-cover ${'pos' in item && item.pos ? item.pos : ''}`}
                 />
                 <div
-                  className="absolute inset-0 bg-gradient-to-t from-brand-night via-brand-night/50 to-transparent md:bg-gradient-to-r"
+                  className="absolute inset-0 bg-gradient-to-t from-brand-night/60 via-transparent to-transparent md:bg-gradient-to-r md:from-transparent md:via-transparent"
                   aria-hidden="true"
                 />
-                <div className="absolute inset-0 bg-brand-blue/30 mix-blend-color" aria-hidden="true" />
-                <div className="stars absolute inset-0 opacity-30" aria-hidden="true" />
               </div>
 
               <div className="relative flex flex-col justify-center gap-3 p-7 sm:p-9">
                 <div className="flex flex-wrap items-center gap-3">
-                  <span className="text-4xl font-black leading-none text-gold-gradient sm:text-5xl">
+                  <span className="font-display text-4xl leading-none text-brand-goldDeep sm:text-5xl">
                     DIA {item.dia}
                   </span>
-                  <span className="chip">
+                  <span className="chip chip-dark">
                     {item.verbo}
                   </span>
                 </div>
 
-                <h3 className="text-xl font-extrabold text-white sm:text-2xl">{item.tema}</h3>
-                <p className="text-base leading-relaxed text-brand-muted">{item.titulo}</p>
+                <h3 className="text-xl text-brand-ink sm:text-2xl">{item.tema}</h3>
+                <p className="text-base leading-relaxed text-brand-ink/70">{item.titulo}</p>
 
                 <div
-                  className="mt-2 h-px w-24 bg-gradient-to-r from-brand-gold to-transparent"
+                  className="mt-2 h-1 w-24 bg-brand-gold"
                   aria-hidden="true"
                 />
               </div>

@@ -17,9 +17,7 @@ export function Egregora() {
           className="h-full w-full object-cover object-center"
         />
         <div className="absolute inset-0 bg-brand-night/85" />
-        <div className="absolute inset-0 bg-gradient-to-b from-brand-night via-brand-night/70 to-brand-night" />
-        <div className="rings-gold absolute left-1/2 top-1/2 h-[120vh] w-[120vh] -translate-x-1/2 -translate-y-1/2 opacity-70" />
-        <div className="stars absolute inset-0 opacity-50" />
+        <div className="absolute inset-0 bg-gradient-to-b from-brand-night via-brand-night/60 to-brand-night" />
       </div>
 
       <div className="container relative z-10 mx-auto max-w-4xl px-4 text-center">
@@ -33,7 +31,7 @@ export function Egregora() {
             <Quote size={24} />
           </span>
 
-          <h2 className="font-serif text-2xl font-medium italic leading-snug text-white drop-shadow-2xl sm:text-3xl lg:text-4xl">
+          <h2 className="text-2xl font-semibold leading-snug text-white sm:text-3xl lg:text-4xl">
             Com a Egrégora trabalhando no campo sutil, vamos romper barreiras, criar experiências de
             aprendizado, reflexão, conexão e transformação.
           </h2>

@@ -54,9 +54,7 @@ export function FAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   return (
-    <section id="faq" className="cosmic relative scroll-mt-28 py-20 sm:py-24 md:scroll-mt-32">
-      <div className="stars absolute inset-0 opacity-35" aria-hidden="true" />
-
+    <section id="faq" className="relative scroll-mt-28 bg-brand-night py-20 sm:py-24 md:scroll-mt-32">
       <div className="container relative z-10 mx-auto px-4">
         {/* Duas colunas: título fixo à esquerda, acordeão à direita */}
         <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">

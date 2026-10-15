@@ -52,7 +52,7 @@ export function Palestrantes() {
               viewport={{ once: true }}
               transition={{ delay: idx * 0.12 }}
               whileHover={{ y: -8 }}
-              className="card-cosmic cosmic group"
+              className="card-cosmic group"
             >
               <div className="relative h-64 overflow-hidden">
                 <img
@@ -65,8 +65,7 @@ export function Palestrantes() {
                   className="absolute inset-0 bg-gradient-to-t from-brand-night via-brand-night/40 to-transparent"
                   aria-hidden="true"
                 />
-                <div className="absolute inset-0 bg-brand-blue/30 mix-blend-color" aria-hidden="true" />
-                <span className="absolute left-4 top-4 rounded-full border border-white/20 bg-brand-night/80 px-3 py-1 text-xs font-bold uppercase tracking-[0.18em] text-white/75 backdrop-blur">
+                <span className="absolute left-4 top-4 rounded-full bg-brand-night/80 px-3 py-1 text-xs font-bold uppercase tracking-[0.18em] text-white/75 backdrop-blur">
                   Em breve · nome oficial
                 </span>
               </div>

@@ -17,17 +17,7 @@ const itens = [
 
 export function Comparacao() {
   return (
-    <section className="cosmic relative overflow-hidden py-24">
-      <div className="stars absolute inset-0 opacity-40" aria-hidden="true" />
-      <div
-        className="absolute -right-32 top-0 h-[500px] w-[500px] rounded-full bg-brand-blue/25 blur-[130px]"
-        aria-hidden="true"
-      />
-      <div
-        className="absolute -left-32 bottom-0 h-[500px] w-[500px] rounded-full bg-brand-gold/10 blur-[130px]"
-        aria-hidden="true"
-      />
-
+    <section className="relative overflow-hidden bg-brand-night py-24">
       <div className="container relative z-10 mx-auto max-w-4xl px-4 text-center">
         <span className="chip">O salto</span>
         <h2 className="mx-auto mt-6 max-w-3xl text-xl leading-tight text-white sm:text-2xl lg:text-3xl">

@@ -15,23 +15,22 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    background-color: #03062f;
-    color: #e8ecf8;
+    background-color: #0d1232;
+    color: #eef1fa;
     font-family: 'Montserrat', system-ui, -apple-system, sans-serif;
     overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
   }
 
   ::selection {
-    background: #f3b100;
-    color: #03062f;
+    background: #f4b100;
+    color: #0d1232;
   }
 
   /* ------------------------------------------------------------------
-     Sistema tipográfico da campanha.
-     Os criativos usam sans geométrica em CAIXA ALTA com tracking apertado.
-     Todo h1/h2/h3 recebe esse tratamento automaticamente — para escapar,
-     use a classe `no-display` (ou `font-serif` nos momentos acolhedores).
+     Sistema tipográfico da campanha (criativos aprovados).
+     Títulos: Anton em CAIXA ALTA com leading apertado.
+     Para escapar, use a classe `no-display`.
      ------------------------------------------------------------------ */
   h1,
   h2,
@@ -39,21 +38,22 @@
     @apply text-balance;
   }
 
-  h1:not(.font-serif):not(.no-display),
-  h2:not(.font-serif):not(.no-display),
-  h3:not(.font-serif):not(.no-display) {
-    @apply font-sans font-black uppercase leading-[1.04] tracking-[-0.015em];
+  h1:not(.no-display),
+  h2:not(.no-display),
+  h3:not(.no-display) {
+    @apply font-display font-normal uppercase leading-[1.02] tracking-[0.01em];
   }
 }
 
 @layer components {
   /* ------------------------------------------------------------------
-     Botões
+     Botões — iguais aos CTAs dos criativos: pill amarelo chapado,
+     texto navy bold, glow amarelo.
      ------------------------------------------------------------------ */
   .btn-gold {
     @apply relative inline-flex items-center justify-center gap-2 overflow-hidden rounded-full
-      bg-brand-gold px-8 py-4 text-base font-black uppercase tracking-[0.06em] text-brand-night
-      shadow-gold transition-all duration-300 hover:scale-[1.03] hover:bg-brand-goldDeep
+      bg-brand-gold px-8 py-4 text-base font-extrabold uppercase tracking-[0.04em] text-brand-night
+      shadow-gold transition-all duration-300 hover:scale-[1.03] hover:brightness-105
       focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-gold/60 focus-visible:ring-offset-2 focus-visible:ring-offset-brand-night;
   }
 
@@ -74,63 +74,80 @@
   }
 
   .btn-ghost {
-    @apply inline-flex items-center justify-center gap-2 rounded-full border border-white/25 px-8 py-4
-      text-sm font-bold uppercase tracking-[0.14em] text-brand-ice transition-colors duration-300
+    @apply inline-flex items-center justify-center gap-2 rounded-full border border-white/40 px-8 py-4
+      text-sm font-bold uppercase tracking-[0.12em] text-white transition-colors duration-300
       hover:border-brand-gold hover:text-brand-gold;
   }
 
   /* ------------------------------------------------------------------
-     Kicker (antigo "chip"): viramos etiqueta editorial — sem pílula,
-     caixa alta, com o ornamento da marca. Usar `.chip-dark` sobre fundo claro.
+     Kicker: etiqueta dourada simples com barra curta — sem ornamentos.
      ------------------------------------------------------------------ */
   .chip {
-    @apply inline-flex items-center text-sm font-bold uppercase tracking-[0.18em] text-brand-gold;
+    @apply inline-flex items-center gap-3 text-sm font-extrabold uppercase tracking-[0.22em] text-brand-gold;
   }
 
   .chip::before {
-    content: '✦';
-    margin-right: 0.6rem;
-    font-size: 0.85em;
-    line-height: 1;
+    content: '';
+    width: 2rem;
+    height: 4px;
+    background: #f4b100;
+    flex-shrink: 0;
   }
 
   .chip-dark {
     @apply text-brand-amber;
   }
 
-  /* ------------------------------------------------------------------
-     Cards
-     ------------------------------------------------------------------ */
-  .card-cosmic {
-    @apply relative overflow-hidden rounded-3xl border border-white/10 bg-brand-night text-brand-ice shadow-card-up;
+  .chip-dark::before {
+    background: #8a6100;
   }
 
-  /* Hairline dourada no topo, sumindo nas pontas (acabamento) */
-  .card-cosmic::before {
-    content: '';
-    position: absolute;
-    inset: 0 0 auto 0;
-    height: 1px;
-    background-image: linear-gradient(90deg, transparent, rgba(243, 177, 0, 0.75), transparent);
-    z-index: 2;
+  /* ------------------------------------------------------------------
+     Faixa destaque: barra amarela com texto navy — padrão dos criativos.
+     ------------------------------------------------------------------ */
+  .faixa {
+    @apply inline-block bg-brand-gold px-4 py-1 font-extrabold uppercase leading-tight text-brand-night;
+  }
+
+  /* ------------------------------------------------------------------
+     Cards — três padrões dos criativos:
+     .card-cosmic (navy), .glass (frosted escuro), .card-light (branco),
+     .card-gold (amarelo com texto navy).
+     ------------------------------------------------------------------ */
+  .card-cosmic {
+    @apply relative overflow-hidden rounded-3xl border border-white/10 bg-brand-deep text-brand-ice shadow-card-up;
+  }
+
+  .glass {
+    @apply relative overflow-hidden rounded-3xl border border-white/15 bg-white/10 shadow-card-up backdrop-blur-md;
+  }
+
+  .card-light {
+    @apply relative overflow-hidden rounded-3xl bg-white text-brand-ink shadow-card;
+  }
+
+  .card-gold {
+    @apply relative overflow-hidden rounded-3xl bg-brand-gold text-brand-night shadow-card;
   }
 
   .card-vip {
-    @apply relative overflow-hidden rounded-3xl border-2 border-brand-gold/60 bg-brand-deep/95 text-brand-ice shadow-vip;
+    @apply relative overflow-hidden rounded-3xl border-2 border-brand-gold/70 bg-brand-deep text-brand-ice shadow-vip;
   }
 
-  /* Item de lista com "checkbox" dourado — igual ao criativo principal do evento */
+  /* Item de lista com "checkbox" dourado */
   .check-box {
     @apply mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-[5px] border-2;
+  }
+
+  /* Linha de data dos criativos: ícone amarelo arredondado + texto branco */
+  .info-ico {
+    @apply flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-brand-gold text-brand-night;
   }
 }
 
 @layer utilities {
   .text-gold-gradient {
-    background: linear-gradient(100deg, #f3b100 0%, #ffd166 45%, #e0a818 100%);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
+    color: #f4b100;
   }
 
   /* Filete dourado que some nas pontas */
@@ -144,13 +161,12 @@
     background-image: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.18), transparent);
   }
 
-  /* Fundo cósmico: navy + nebulosas azul/amarela (identidade dos criativos) */
+  /* Fundo navy profundo com vinheta — base dos criativos */
   .cosmic {
-    background-color: #03062f;
+    background-color: #0d1232;
     background-image:
-      radial-gradient(circle at 12% 18%, rgba(16, 40, 160, 0.38), transparent 42%),
-      radial-gradient(circle at 88% 8%, rgba(32, 60, 101, 0.5), transparent 48%),
-      radial-gradient(circle at 50% 108%, rgba(243, 177, 0, 0.14), transparent 55%);
+      radial-gradient(circle at 50% 120%, rgba(30, 30, 168, 0.35), transparent 55%),
+      radial-gradient(circle at 85% 0%, rgba(244, 177, 0, 0.07), transparent 45%);
   }
 
   /* Fundo claro quente + aura dourada suave */

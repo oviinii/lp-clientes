@@ -19,8 +19,7 @@ export function Mentora() {
           className="h-full w-full object-cover object-center"
         />
         <div className="absolute inset-0 bg-brand-night/85" />
-        <div className="absolute inset-0 bg-gradient-to-r from-brand-night via-brand-night/80 to-brand-blue/40" />
-        <div className="stars absolute inset-0 opacity-40" />
+        <div className="absolute inset-0 bg-gradient-to-r from-brand-night via-brand-night/80 to-brand-night/30" />
       </div>
 
       <div className="container relative z-10 mx-auto px-4">
@@ -32,7 +31,6 @@ export function Mentora() {
             transition={{ duration: 0.7 }}
             className="relative mx-auto w-full max-w-md"
           >
-            <div className="rings-gold absolute inset-[-14%] animate-glow-pulse" aria-hidden="true" />
             <div className="absolute -inset-4 rounded-[2.5rem] bg-brand-gold/20 blur-3xl" aria-hidden="true" />
             <img
               src="/imagens/IMG_5398.jpg"

@@ -12,13 +12,11 @@ export function Footer() {
 
   return (
     <footer className="relative border-t border-white/10 bg-brand-night">
-      <div className="stars absolute inset-0 opacity-30" aria-hidden="true" />
-
       <div className="container relative z-10 mx-auto px-4 py-16">
         <div className="grid gap-12 md:grid-cols-3">
           <div>
             <img
-              src="/logos/Logo%20horizontal%20POSITIVO.png"
+              src="/logos/Logo%20horizontal%201.png"
               alt="Semana da Nova Consciência"
               className="mb-5 h-[10.5rem] w-auto max-w-full object-contain"
             />

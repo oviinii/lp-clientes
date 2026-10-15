@@ -13,20 +13,22 @@ export default {
          * e do manual de marca (public/logos/logo-fundo-*.png).
          */
         brand: {
-          night: '#03062f',   // navy cósmico — fundo principal (cor dominante dos criativos)
-          deep: '#0a1140',    // navy elevado — cards sobre fundo escuro
+          night: '#0d1232',   // navy profundo dos criativos da campanha
+          deep: '#141843',    // navy elevado — cards sobre fundo escuro
+          royal: '#1e1ea8',   // azul royal — texto de destaque nos cards claros
           blue: '#1028a0',    // azul institucional (swatch do manual de marca)
           blueSoft: '#203c65',// azul de brilho / nebulosa (criativos)
-          gold: '#f3b100',    // amarelo da campanha (CTA, destaques)
-          goldDeep: '#e0a818',// dourado do manual de marca
+          gold: '#f4b100',    // amarelo ouro da campanha (CTA, destaques, logo)
+          goldDeep: '#d99a06',// ouro sombreado — gradientes e selo
           amber: '#8a6100',   // âmbar escuro — para TEXTO dourado sobre fundo claro (contraste)
-          ice: '#e8ecf8',     // texto claro sobre navy
-          muted: '#9aa4c8',   // texto secundário sobre navy
+          ice: '#eef1fa',     // texto claro sobre navy
+          muted: '#aab3d6',   // texto secundário sobre navy
           light: '#f7f4ee',   // fundo claro quente das seções de contraste
-          ink: '#0b1030',     // texto escuro sobre fundo claro
+          ink: '#101542',     // texto escuro sobre fundo claro
         },
       },
       fontFamily: {
+        display: ['Anton', 'Montserrat', 'sans-serif'],
         sans: ['Montserrat', 'system-ui', '-apple-system', 'sans-serif'],
         serif: ['"Playfair Display"', 'Georgia', 'serif'],
       },

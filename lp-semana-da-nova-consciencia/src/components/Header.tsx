@@ -30,7 +30,7 @@ export function Header() {
         <div className="container mx-auto flex h-24 items-center justify-between px-4 md:h-28">
           <a href="#inicio" className="flex items-center" aria-label="Semana da Nova Consciência">
             <img
-              src="/logos/Logo%20horizontal%20POSITIVO.png"
+              src="/logos/Logo%20horizontal%201.png"
               alt="Semana da Nova Consciência"
               className="h-20 w-auto object-contain md:h-24"
             />

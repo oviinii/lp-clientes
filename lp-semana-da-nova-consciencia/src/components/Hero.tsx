@@ -8,14 +8,13 @@ const provas = [
 ];
 
 /**
- * Hero — ajuste pedido: a imagem é o banner inteiro de fundo (full-bleed),
- * com foto real do acervo (plateia em vivência) no lugar da arte anterior.
- * Os selos "Vagas limitadas" e "De 2 a 6 de dezembro" ficam junto ao bloco
- * de texto/CTAs, sem flutuar distantes.
+ * Hero na ID da campanha: foto real em banner cheio + véu navy,
+ * título em Anton (branco + ouro), linha de data com ícones amarelos,
+ * CTA pill ouro com glow e "vagas limitadas" espaçado.
  */
 export function Hero() {
   return (
-    <section id="inicio" className="cosmic relative flex min-h-screen items-center overflow-hidden">
+    <section id="inicio" className="relative flex min-h-screen items-center overflow-hidden bg-brand-night">
       {/* Banner inteiro de fundo: foto real + véu navy para leitura */}
       <div className="absolute inset-0" aria-hidden="true">
         <img
@@ -28,28 +27,20 @@ export function Hero() {
         <div className="absolute inset-0 bg-gradient-to-t from-brand-night via-transparent to-brand-night/60" />
       </div>
 
-      <div className="stars absolute inset-0 animate-twinkle opacity-40" aria-hidden="true" />
-      <div className="rings absolute -right-1/4 top-1/2 h-[140vh] w-[140vh] -translate-y-1/2" aria-hidden="true" />
-      <div
-        className="absolute -bottom-40 right-10 h-[520px] w-[520px] animate-glow-pulse rounded-full bg-brand-gold/15 blur-[140px]"
-        aria-hidden="true"
-      />
-
       <div className="container relative z-10 mx-auto max-w-4xl px-4 pb-24 pt-44 text-left lg:pt-48">
-        <motion.span
+        <motion.div
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="chip"
         >
-          Prepare-se para 2027
-        </motion.span>
+          <span className="faixa text-sm sm:text-base">Prepare-se para 2027</span>
+        </motion.div>
 
         <motion.h1
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.1 }}
-          className="mt-6 text-[2.5rem] text-white sm:text-5xl lg:text-6xl xl:text-[4.6rem]"
+          className="mt-6 text-6xl text-white sm:text-7xl lg:text-8xl"
         >
           Semana da
           <br />
@@ -60,7 +51,7 @@ export function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.2 }}
-          className="mt-6 font-serif text-xl italic text-brand-ice/90 sm:text-2xl"
+          className="mt-6 text-xl font-semibold text-white sm:text-2xl"
         >
           O ano do salto de consciência
         </motion.p>
@@ -69,26 +60,27 @@ export function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.28 }}
-          className="mt-7 flex flex-wrap items-center gap-3"
+          className="mt-7 flex flex-col gap-3"
         >
-          <span className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-2 text-xs font-bold uppercase tracking-[0.12em] text-brand-ice">
-            <CalendarDays size={15} className="text-brand-gold" />
+          <p className="flex items-center gap-3 text-base font-medium text-white sm:text-lg">
+            <span className="info-ico">
+              <CalendarDays size={17} strokeWidth={2.5} />
+            </span>
             De 2 a 6 de dezembro
-          </span>
-          <span className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-2 text-xs font-bold uppercase tracking-[0.12em] text-brand-ice">
-            <PlayCircle size={15} className="text-brand-gold" />
-            Evento 100% online
-          </span>
-          <span className="inline-flex items-center gap-2 rounded-full border border-brand-gold/50 bg-brand-gold/15 px-4 py-2 text-xs font-bold uppercase tracking-[0.12em] text-brand-gold">
-            Vagas limitadas · Lote 1 · 50% off
-          </span>
+          </p>
+          <p className="flex items-center gap-3 text-base font-bold uppercase tracking-wide text-white sm:text-lg">
+            <span className="info-ico">
+              <PlayCircle size={17} strokeWidth={2.5} />
+            </span>
+            100% online
+          </p>
         </motion.div>
 
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.36 }}
-          className="mt-7 max-w-2xl text-base leading-relaxed text-brand-muted sm:text-lg"
+          className="mt-7 max-w-2xl text-base leading-relaxed text-white/85 sm:text-lg"
         >
           Mais de 25 palestras, entrevistas e vivências para romper padrões antigos e manifestar uma nova
           realidade em 2027.
@@ -102,7 +94,7 @@ export function Hero() {
         >
           <a href="#ingressos" className="btn-gold btn-shine">
             Garantir minha vaga
-            <ArrowRight size={18} />
+            <ArrowRight size={18} strokeWidth={3} />
           </a>
           <a href="#programacao" className="btn-ghost">
             <Clock3 size={18} />
@@ -110,16 +102,25 @@ export function Hero() {
           </a>
         </motion.div>
 
-        <motion.dl
+        <motion.p
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.55 }}
-          className="mt-12 grid max-w-2xl grid-cols-3 gap-4 border-t border-white/10 pt-7"
+          className="mt-6 text-sm font-medium uppercase tracking-[0.35em] text-white/80"
+        >
+          Vagas limitadas · Lote 1 · 50% off
+        </motion.p>
+
+        <motion.dl
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.8, delay: 0.6 }}
+          className="mt-8 grid max-w-2xl grid-cols-3 gap-4 border-t border-white/15 pt-7"
         >
           {provas.map((p) => (
             <div key={p.rotulo}>
-              <dt className="text-3xl font-black text-brand-gold sm:text-4xl">{p.valor}</dt>
-              <dd className="mt-2 text-xs font-bold uppercase leading-snug tracking-[0.16em] text-brand-muted">
+              <dt className="font-display text-3xl text-brand-gold sm:text-4xl">{p.valor}</dt>
+              <dd className="mt-2 text-xs font-bold uppercase leading-snug tracking-[0.16em] text-white/70">
                 {p.rotulo}
               </dd>
             </div>
