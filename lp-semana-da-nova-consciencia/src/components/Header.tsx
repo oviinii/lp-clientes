@@ -1,38 +1,40 @@
 import { useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
-import { CalendarDays, Menu, Sparkles, X } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
+import { CHECKOUT_URL } from '../checkout';
 
 const links = [
-  { label: 'A experiência', href: '#pilares' },
+  { label: 'O que você vai', href: '#vai' },
+  { label: 'Depoimentos', href: '#depoimentos' },
+  { label: 'Condução', href: '#conducao' },
   { label: 'Programação', href: '#programacao' },
-  { label: 'Mentora', href: '#mentora' },
-  { label: 'Palestrantes', href: '#palestrantes' },
-  { label: 'Ingressos', href: '#ingressos' },
-  { label: 'FAQ', href: '#faq' },
+  { label: 'Inscrição', href: '#inscricao' },
 ];
 
+/**
+ * Header da página de vendas — faixa com data/urgência + logo da marca.
+ */
 export function Header() {
   const [open, setOpen] = useState(false);
 
   return (
     <header className="fixed inset-x-0 top-0 z-50">
-      {/* Faixa de campanha — reforça data e vagas limitadas (identidade dos criativos) */}
-      <div className="bg-gradient-to-r from-brand-goldDeep via-brand-gold to-brand-goldDeep text-brand-night">
-        <p className="container mx-auto flex flex-wrap items-center justify-center gap-x-3 gap-y-1 px-4 py-2 text-center text-xs font-bold uppercase tracking-[0.14em]">
-          <Sparkles size={13} />
-          <span>De 2 a 6 de dezembro · 100% online</span>
-          <span className="hidden h-3 w-px bg-brand-night/30 sm:block" />
-          <span className="hidden sm:inline">Vagas limitadas — Lote 1 com 50% de desconto</span>
+      {/* Faixa de campanha */}
+      <div className="bg-brand-gold text-brand-night">
+        <p className="container mx-auto flex flex-wrap items-center justify-center gap-x-3 gap-y-1 px-4 py-2 text-center text-xs font-extrabold uppercase tracking-[0.14em]">
+          <span>7 e 8 de novembro · online e ao vivo</span>
+          <span className="hidden h-3 w-px bg-brand-night/40 sm:block" />
+          <span className="hidden sm:inline">Vagas muito limitadas</span>
         </p>
       </div>
 
-      <div className="border-b border-white/10 bg-brand-night/85 backdrop-blur-lg">
-        <div className="container mx-auto flex h-24 items-center justify-between px-4 md:h-28">
-          <a href="#inicio" className="flex items-center" aria-label="Semana da Nova Consciência">
+      <div className="border-b border-white/10 bg-brand-night/90 backdrop-blur-lg">
+        <div className="container mx-auto flex h-20 items-center justify-between px-4 md:h-24">
+          <a href="#inicio" className="flex items-center" aria-label="Imersão Destrave sua Expansão da Consciência">
             <img
               src="/logos/Logo%20horizontal%201.png"
-              alt="Semana da Nova Consciência"
-              className="h-20 w-auto object-contain md:h-24"
+              alt="Destrave sua Expansão da Consciência"
+              className="h-16 w-auto object-contain md:h-20"
             />
           </a>
 
@@ -46,8 +48,8 @@ export function Header() {
                 {link.label}
               </a>
             ))}
-            <a href="#ingressos" className="btn-gold px-6 py-3 text-sm">
-              Garantir minha vaga
+            <a href={CHECKOUT_URL} target="_blank" rel="noreferrer" className="btn-gold px-6 py-3 text-sm">
+              Quero destravar
             </a>
           </nav>
 
@@ -82,12 +84,13 @@ export function Header() {
                   </a>
                 ))}
                 <a
-                  href="#ingressos"
+                  href={CHECKOUT_URL}
+                  target="_blank"
+                  rel="noreferrer"
                   onClick={() => setOpen(false)}
                   className="btn-gold w-full max-w-xs py-3"
                 >
-                  <CalendarDays size={18} />
-                  Garantir minha vaga
+                  Quero destravar
                 </a>
               </nav>
             </motion.div>

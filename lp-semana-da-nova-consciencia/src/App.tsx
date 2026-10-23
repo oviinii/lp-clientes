@@ -1,17 +1,11 @@
 import { Header } from './components/Header';
-import { Hero } from './components/Hero';
-import { Pilares } from './components/Pilares';
+import { SalesHero } from './components/SalesHero';
+import { SalesVai } from './components/SalesVai';
 import { Depoimentos } from './components/Depoimentos';
-import { Programacao } from './components/Programacao';
-import { Mentora } from './components/Mentora';
-import { Egregora } from './components/Egregora';
-import { Palestrantes } from './components/Palestrantes';
-import { Comparacao } from './components/Comparacao';
-import { Frase } from './components/Frase';
-import { Oferta } from './components/Oferta';
-import { Garantia } from './components/Garantia';
-import { Apoiadores } from './components/Apoiadores';
-import { FAQ } from './components/FAQ';
+import { SalesMentora } from './components/SalesMentora';
+import { SalesAgenda } from './components/SalesAgenda';
+import { SalesOferta } from './components/SalesOferta';
+import { SalesAdiar } from './components/SalesAdiar';
 import { Footer } from './components/Footer';
 
 function App() {
@@ -19,20 +13,15 @@ function App() {
     <div className="overflow-x-hidden bg-brand-night font-sans antialiased">
       <Header />
       <main>
-        {/* Ordem das seções conforme o briefing (Sessões 01 a 12) */}
-        <Hero />
-        <Pilares />
+        {/* Ordem conforme a copy: dor -> entregáveis -> provas -> condução
+            -> programação -> inscrição -> fechamento */}
+        <SalesHero />
+        <SalesVai />
         <Depoimentos />
-        <Programacao />
-        <Mentora />
-        <Egregora />
-        <Palestrantes />
-        <Comparacao />
-        <Frase />
-        <Oferta />
-        <Apoiadores />
-        <FAQ />
-        <Garantia />
+        <SalesMentora />
+        <SalesAgenda />
+        <SalesOferta />
+        <SalesAdiar />
       </main>
       <Footer />
     </div>

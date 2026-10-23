@@ -2,12 +2,11 @@ import { AtSign, Mail, MessageCircle } from 'lucide-react';
 
 export function Footer() {
   const links = [
-    { label: 'A experiência', href: '#pilares' },
+    { label: 'O que você vai', href: '#vai' },
+    { label: 'Depoimentos', href: '#depoimentos' },
+    { label: 'Condução', href: '#conducao' },
     { label: 'Programação', href: '#programacao' },
-    { label: 'Mentora', href: '#mentora' },
-    { label: 'Palestrantes', href: '#palestrantes' },
-    { label: 'Ingressos', href: '#ingressos' },
-    { label: 'Dúvidas frequentes', href: '#faq' },
+    { label: 'Inscrição', href: '#inscricao' },
   ];
 
   return (
@@ -21,8 +20,8 @@ export function Footer() {
               className="mb-5 h-[10.5rem] w-auto max-w-full object-contain"
             />
             <p className="leading-relaxed text-brand-muted">
-              De 2 a 6 de dezembro de 2026. Mais de 25 palestras, entrevistas e vivências para romper
-              padrões antigos e manifestar uma nova realidade em 2027.
+              7 e 8 de novembro, online e ao vivo. Em dois dias, reconheça os 3 Padrões que estão travando sua
+              jornada e descubra como acelerar sua expansão da consciência.
             </p>
           </div>
 
@@ -74,10 +73,10 @@ export function Footer() {
         <div className="hairline mt-12" aria-hidden="true" />
         <div className="mt-8 flex flex-col items-center justify-between gap-4 md:flex-row">
           <p className="text-sm text-brand-muted">
-            © 2026 Semana da Nova Consciência. Todos os direitos reservados.
+            © 2026 Imersão Destrave sua Expansão da Consciência. Todos os direitos reservados.
           </p>
           <p className="text-xs text-brand-muted/80">
-            Realização: Leandra Soares | Despertadores da Nova Era
+            Realização: Leandra Soares | Co-realização: Valter Monteiro
           </p>
         </div>
       </div>
