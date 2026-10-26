@@ -9,16 +9,23 @@ import { CHECKOUT_URL } from '../checkout';
 export function SalesHero() {
   return (
     <section id="inicio" className="relative flex min-h-screen items-center overflow-hidden bg-brand-night">
-      {/* Banner de fundo: foto real + véu navy */}
+      {/* Banner de fundo: imagem da Leandra + véus leves para leitura.
+          No desktop a arte é espelhada para a Leandra ficar à direita,
+          do lado oposto ao texto. */}
       <div className="absolute inset-0" aria-hidden="true">
-        <img
-          src="/imagens/CONGRESSOMULTIDIMENSIONAL-09998-2.jpg"
-          alt=""
-          className="h-full w-full object-cover object-center"
-        />
-        <div className="absolute inset-0 bg-brand-night/80" />
-        <div className="absolute inset-0 bg-gradient-to-r from-brand-night via-brand-night/75 to-brand-night/35" />
-        <div className="absolute inset-0 bg-gradient-to-t from-brand-night via-transparent to-brand-night/55" />
+        <picture className="block h-full w-full lg:-scale-x-100">
+          <source srcSet="/imagens/leandra-hero-mobile.jpg" media="(max-width: 1023px)" />
+          <img
+            src="/imagens/leandra-hero-desktop.jpg"
+            alt=""
+            className="h-full w-full object-cover object-center"
+          />
+        </picture>
+        <div className="absolute inset-0 bg-brand-night/35" />
+        {/* No mobile o texto passa sobre a Leandra, então escurecemos um pouco mais */}
+        <div className="absolute inset-0 bg-brand-night/45 lg:hidden" />
+        <div className="absolute inset-0 bg-gradient-to-r from-brand-night/90 via-brand-night/45 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-brand-night via-transparent to-brand-night/60" />
       </div>
 
       <div className="container relative z-10 mx-auto max-w-4xl px-4 pb-24 pt-44 text-left lg:pt-52">

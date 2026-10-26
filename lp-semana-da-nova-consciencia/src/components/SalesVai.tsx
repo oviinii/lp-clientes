@@ -3,7 +3,7 @@ import { ArrowRight, Check } from 'lucide-react';
 import { CHECKOUT_URL } from '../checkout';
 
 /**
- * "Você vai:" — os 5 entregáveis da imersão, copy fiel do documento,
+ * "Conteúdo" — os 5 entregáveis da imersão, copy fiel do documento,
  * cachê claro como nos cards da campanha.
  */
 const itens = [
@@ -26,7 +26,7 @@ export function SalesVai() {
         <div className="grid gap-6 lg:grid-cols-12 lg:items-end">
           <div className="lg:col-span-8">
             <span className="chip">Nesta imersão</span>
-            <h2 className="mt-6 text-4xl text-white sm:text-6xl">Você vai:</h2>
+            <h2 className="mt-6 text-4xl text-white sm:text-6xl">Conteúdo</h2>
           </div>
           <p className="text-base leading-relaxed text-white/70 lg:col-span-4 lg:pb-2 lg:text-lg">
             Experiências ao vivo para destravar o que impede seu avanço.

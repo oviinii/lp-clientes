@@ -4,7 +4,7 @@ import { Menu, X } from 'lucide-react';
 import { CHECKOUT_URL } from '../checkout';
 
 const links = [
-  { label: 'O que você vai', href: '#vai' },
+  { label: 'Conteúdo', href: '#vai' },
   { label: 'Depoimentos', href: '#depoimentos' },
   { label: 'Condução', href: '#conducao' },
   { label: 'Programação', href: '#programacao' },
@@ -12,7 +12,8 @@ const links = [
 ];
 
 /**
- * Header da página de vendas — faixa com data/urgência + logo da marca.
+ * Header da página de vendas — faixa com data/urgência + nome da Leandra
+ * (sem logos, conforme pedido no documento de ajustes).
  */
 export function Header() {
   const [open, setOpen] = useState(false);
@@ -30,12 +31,10 @@ export function Header() {
 
       <div className="border-b border-white/10 bg-brand-night/90 backdrop-blur-lg">
         <div className="container mx-auto flex h-20 items-center justify-between px-4 md:h-24">
-          <a href="#inicio" className="flex items-center" aria-label="Imersão Destrave sua Expansão da Consciência">
-            <img
-              src="/logos/Logo%20horizontal%201.png"
-              alt="Destrave sua Expansão da Consciência"
-              className="h-16 w-auto object-contain md:h-20"
-            />
+          <a href="#inicio" className="flex items-center" aria-label="Leandra Soares">
+            <span className="font-display text-xl uppercase tracking-[0.18em] text-white sm:text-2xl">
+              Leandra <span className="text-gold-gradient">Soares</span>
+            </span>
           </a>
 
           <nav className="hidden items-center gap-7 lg:flex">
