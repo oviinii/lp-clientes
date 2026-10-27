@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Mic2, Sparkles } from 'lucide-react';
+import { Mic2 } from 'lucide-react';
 
 /**
  * Condução: "Essa é a última Imersão... deste ano" + Leandra Soares
@@ -72,8 +72,14 @@ export function SalesMentora() {
             transition={{ delay: 0.12 }}
             className="card-cosmic grid overflow-hidden sm:grid-cols-[0.8fr_1.2fr]"
           >
-            <div className="relative flex min-h-[260px] items-center justify-center bg-brand-deep">
-              <Sparkles size={56} className="text-brand-gold/70" aria-hidden="true" />
+            <div className="relative min-h-[260px]">
+              <img
+                src="/imagens/valter-monteiro.jpg"
+                alt="Valter Monteiro, médiaum e co-realizador do Congresso, palestrando com microfone"
+                loading="lazy"
+                className="absolute inset-0 h-full w-full object-cover object-top"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-brand-night/50 to-transparent" aria-hidden="true" />
             </div>
             <figcaption className="p-7">
               <span className="chip">Participação especial</span>
